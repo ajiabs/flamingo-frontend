@@ -1,0 +1,90 @@
+@import "../../styles/Variables/Variables.scss";
+
+
+#empdetailssection{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+   
+    #detailsheading{
+        font-size: 18px;
+        font-family: $sffont-regular;
+        margin-left: 10px;
+    }
+
+    .profilepicdiv{
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .profilepic{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid #21252975;
+        padding: 5px;
+    }
+    .namesection{
+        display: inline-block;
+    }
+
+    .profilename{
+        font-size: 16px;
+        font-family: $sffont-medium;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .profileemail{
+        font-size: 14px;
+        font-family: $sffont-regular;
+        margin-left: 20px;
+    }
+   
+
+
+        #empdiv{
+            padding:2px 0px 0px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            height: 55px;
+
+            .title{
+                font-family: $sffont-regular;
+                font-size: 14px;
+            }
+
+            .empname{
+                font-family: $sffont-medium;
+                font-size: 15px;
+                // padding-bottom:8px;
+            }
+        }
+
+        .arrowback{
+            float: right;
+            background-color: #dde2eb;
+            padding: 10px;
+            color: #39979d;
+            cursor: pointer;
+            border-radius: 3px;
+    
+              &:hover{
+                background-color: #39979d;
+                color: #fff;
+              }
+          }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

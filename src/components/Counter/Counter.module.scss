@@ -1,0 +1,44 @@
+@import "/src/styles/Variables/Variables.scss";
+
+.cardbox1{
+    height: 80px;
+    border-radius: 8px;
+    border-color: #DBDBDB;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+    margin-bottom: 10px;
+    min-width: 24%;
+    text-align: left;
+    color: $white-color;
+    background-color: linear-gradient(90deg, rgba(237,70,113,1) 0%, rgba(240,103,233,1) 100%);
+}
+
+.card_body{
+    text-decoration:none;
+}
+
+.card_title{
+    color: $white-color;
+    font-size: 13px;
+    font-family: $sffont-medium;
+    text-decoration:none;
+}
+.card_para{
+    font-size: 20px;
+    font-family: $sffont-medium;
+    color: $white-color;
+    text-decoration:none;
+}
+.countericon{
+    padding-right: 10px;
+}
+.links_items{
+    text-decoration: none;
+    color: #fff;
+}
+
+.links_items:hover{
+    color:#fff;
+    cursor: pointer;
+}

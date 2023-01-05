@@ -1,0 +1,249 @@
+
+  
+@import "../../styles/Variables/Variables.scss";
+
+.loginleftbg{
+    height: 100vh;
+    position: relative;
+    background: url(../../assets/loginbg.jpg);
+    background-size:contain;
+}
+
+.loginrightbg{
+  background-color: $white-color;
+  height: 100vh;
+  position: relative;
+}
+
+.leftcontent{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.rightcontent{
+  width: 500px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.lefttext{
+     width: 600px;
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+    font-family: $sffont-medium;
+    font-weight: 600;
+}
+
+.leftpara{
+    color: rgb(71, 71, 71);
+    font-size: 24px;
+    text-align: center;
+}
+
+.logodiv{
+  display: flex;
+  margin-top: 10%;
+}
+
+.formsec{
+  text-align: left;
+}
+
+.logo{
+    width: 100px;
+    margin-left: -2px;
+    margin-bottom: 30px;
+}
+
+.logintitle{
+    color: $black-color;
+    font-size: 20px;
+    text-align: left;
+    font-family: $sffont-medium;
+    letter-spacing: 0px;
+    margin-bottom: 10px;
+}
+
+.labeltext{
+   color: $black-color;
+   font-size: 14px;
+   font-weight: 500;
+   font-family: $sffont-medium;
+}
+
+#forgottext{
+  text-align: right;
+  font-size: 14px;
+  font-family: $sffont-regular;
+}
+
+.forgotpw{
+  text-decoration: none;
+  color: #2081E2;
+
+    &:hover{
+      color: $primary-btncolor;
+    }
+}
+
+
+
+#loginbtn{
+  background-color: $primary-btncolor;
+  font-size: 16px;
+  width: 100%;
+  text-transform: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-family: $sffont-regular;
+  border: none;
+  color: $white-color;
+  margin-top:10px;
+}
+
+#loginbtn:hover{
+  background-color: $secondary-btncolor;
+}
+
+.inputbox{
+  border-radius: 3px !important;
+  padding: 10px !important;
+}
+
+.emailbox{
+  padding: 5px 10px 10px 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #dde2eb63;
+}
+
+
+.eyeicon{
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+.labeltext{
+   color: $black-color;
+   font-size: 14px;
+   font-weight: 500;
+   font-family: $sffont-medium;
+}
+
+::placeholder {
+  font-size: 14px;
+  font-family: $sffont-regular;
+}
+.loglinksection{
+  font-family: $sffont-regular;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+}
+.loglink{
+  color: #2081E2;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: $sffont-regular;
+
+    &:hover{
+      color: $primary-btncolor;
+    }
+}
+
+
+
+// @media only screen and (max-width: 1200px) {
+//     .loginimage{
+//       margin-top: 32%;
+//     }
+//   }
+  
+//   @media only screen and (max-width: 992px) {
+//     .loginimage{
+//       margin-top: 45%;
+//     }
+//   }
+  
+//   @media only screen and (max-width: 840px) {
+//     .loginimage{
+//       margin-top: 58%;
+//     }
+//   }
+  
+//   @media only screen and (max-width: 740px) {
+//     .loginimage{
+//       margin-top: 65%;
+//     }
+//   }
+//   @media only screen and (max-width: 678px) {
+//     .loginimage{
+//       margin-top: 73%;
+//     }
+//   }
+
+
+@media only screen and (max-width: 1100px) {
+  .rightcontent{
+    width: 300px;
+  }  
+
+  .lefttext{
+    width: 400px;
+    font-size: 40px;
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .lefttext{
+      font-size: 28px;
+      width: 300px;
+  }
+
+  .leftpara{
+      font-size: 16px;
+  }
+
+}
+  
+@media only screen and (max-width: 768px) {
+  
+  .lefttext{
+    font-size: 24px;
+    width: 250px;
+}
+
+  .leftpara{
+      font-size: 14px;
+  }
+
+  .rightcontent{
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .loginleftbg{
+   display: none;
+  }
+
+  .rightcontent{
+    width: 80%;
+    top: 36%;
+  }
+
+
+  .loginimage{
+    margin-top: 30% !important;
+  }
+}

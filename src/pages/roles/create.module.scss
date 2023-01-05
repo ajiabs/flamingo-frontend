@@ -1,0 +1,134 @@
+@import "../../styles/Variables/Variables.scss";
+
+
+#addform{
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-bottom:80px;
+
+    #addheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+        margin-bottom: 20px;
+    }
+
+    .inputbox{
+        padding: 5px 5px 8px 10px;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #ced4da;
+        color: $black-color;
+        font-size: 14px;
+    }
+    .inputbox1{
+        padding: 5px 5px 8px 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .formlabel{
+        font-family: $sffont-regular;
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .formbtn{
+        background-color: $primary-btncolor;
+        color: white;
+        border: none;
+        width: 100px;
+        font-size: 16px;
+        padding: 11px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        float: left;
+
+            &:hover{
+                background-color: $secondary-btncolor;
+            }
+    }
+    .resetbtn{
+        margin-left: 10px;
+        background-color: #b4b8c063;
+        border: none; 
+        color: #212529;
+        width: 100px;
+        font-size: 16px;
+        padding: 11px;
+        border-radius: 5px;
+    }
+
+    .resetbtn:hover{
+        background-color: #dde2eb; 
+    }
+
+    ::placeholder{
+        font-size: 12px;
+    }
+
+    ul{
+      padding-left: 0px;
+      display: flex;
+        li{
+            list-style: none;
+            width: 150px;
+        }
+    } 
+
+    .selectlabel{
+        margin-left: 5px;
+        font-family: $sffont-regular;
+        font-size: 16px;
+        text-transform: capitalize;
+        vertical-align: middle;
+    }
+
+    #permissionbox{
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .arrowback{
+        float: right;
+        background-color: #dde2eb;
+        padding: 10px;
+        color: #39979d;
+        cursor: pointer;
+        border-radius: 3px;
+
+          &:hover{
+            background-color: #39979d;
+            color: #fff;
+          }
+      }
+
+
+  }
+
+  @media only screen and (max-width: 878px) {
+    #addform{
+        ul {
+            display: list-item !important;
+            list-style: none;
+        }
+    }
+  }
+  
+
+
+  @media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

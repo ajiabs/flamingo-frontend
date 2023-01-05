@@ -1,0 +1,126 @@
+@import "../../styles/Variables/Variables.scss";
+
+
+#addform{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+   
+    #addheading{
+        font-size: 16px;
+        font-family: $sffont-medium;
+        margin-left: 3px;
+    }
+
+    .profilepicdiv{
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .profilepic{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid #21252975;
+        padding: 5px;
+    }
+    .namesection{
+        display: inline-block;
+    }
+
+    .profilename{
+        color: $black-color;
+        font-size: 16px;
+        font-family: $sffont-medium;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .profileemail{
+        color: $black-color;
+        font-size: 14px;
+        font-family: $sffont-regular;
+        margin-left: 20px;
+    }
+    .arrowback{
+        float: right;
+        background-color: #dde2eb;
+        padding: 10px;
+        color: #39979d;
+        cursor: pointer;
+        border-radius: 3px;
+
+          &:hover{
+            background-color: #39979d;
+            color: #fff;
+          }
+      }
+    
+        #empdiv{
+            padding:5px 0px 0px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            height: 55px;
+
+            .title{
+                font-family: $sffont-regular;
+                font-size: 14px;
+            }
+
+            .empname{
+                font-family: $sffont-medium;
+                font-size: 15px;
+            }
+        }
+
+        .content_title{
+            font-size: 16px;
+            font-family: $sffont-medium;
+        }
+    ul{
+        padding-left: 0px;
+        display: flex;
+        
+        li{
+            list-style: none;
+            width: 150px;
+          }
+     } 
+    .selectlabel{
+        margin-left: 5px;
+        font-family: $sffont-regular;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .checkicon{
+        margin-left: 5px;
+    }
+
+    #permissionbox{
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0px 20px 0px;
+    }
+}
+
+
+
+@media only screen and (max-width: 878px) {
+    ul {
+        display: list-item !important;
+        list-style: none;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

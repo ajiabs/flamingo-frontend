@@ -1,0 +1,103 @@
+@import "../../styles/Variables/Variables.scss";
+
+
+#addform{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-bottom:30px;
+
+    #addheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+        margin-bottom: 20px;
+    }
+
+    .inputbox{
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #ced4da;
+        color: $black-color;
+        font-size: 14px;
+    }
+    .inputbox1{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        font-family: $sffont-regular;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .dateinputbox{
+        padding: 7px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        width: 100%;
+        color: $black-color;
+        font-size: 14px;
+    }
+    .dateinputbox1{
+        padding: 7px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .formlabel{
+        font-size: 14px;
+        font-family: $sffont-regular;
+        margin-bottom: 0px;
+    }
+    
+    .formbtn{
+        background-color: $primary-btncolor;
+        color: white;
+        border: none;
+        width: 100px;
+        font-size: 16px;
+        padding: 11px;
+        border-radius: 5px;
+
+        &:hover{
+            background-color: $secondary-btncolor;
+        }
+    }
+
+    .arrowback{
+        float: right;
+        background-color: #dde2eb;
+        padding: 10px;
+        color: #39979d;
+        cursor: pointer;
+        border-radius: 3px;
+
+          &:hover{
+            background-color: #39979d;
+            color: #fff;
+          }
+      }
+
+    ::placeholder{
+        font-size: 14px;
+        color: $lightthemetext;
+    }
+
+  }
+  
+
+
+  @media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

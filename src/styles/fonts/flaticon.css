@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "flaticon";
+  src: url("./flaticon.ttf?2ab5c397e9ae49c69ed088012eebc004") format("truetype"), url("./flaticon.woff?2ab5c397e9ae49c69ed088012eebc004") format("woff"), url("./flaticon.woff2?2ab5c397e9ae49c69ed088012eebc004") format("woff2"), url("./flaticon.eot?2ab5c397e9ae49c69ed088012eebc004#iefix") format("embedded-opentype"), url("./flaticon.svg?2ab5c397e9ae49c69ed088012eebc004#flaticon") format("svg"); }
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+  font-family: flaticon !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flaticon-facebook-logo:before {
+  content: ""; }
+
+.flaticon-linkedin:before {
+  content: ""; }
+
+.flaticon-youtube:before {
+  content: ""; }
+
+.flaticon-twitter:before {
+  content: ""; }
+
+.flaticon-tik-tok:before {
+  content: ""; }
+
+.flaticon-instagram:before {
+  content: ""; }
+
+.flaticon-play:before {
+  content: ""; }
+
+.flaticon-play-1:before {
+  content: ""; }
+
+.flaticon-play-button:before {
+  content: ""; }
+
+.flaticon-right-arrow:before {
+  content: ""; }
+
+.flaticon-calendar:before {
+  content: ""; }
+
+.flaticon-clock:before {
+  content: ""; }
+
+.flaticon-close:before {
+  content: ""; }
+
+.flaticon-cancel:before {
+  content: ""; }
+
+.flaticon-plus:before {
+  content: ""; }
+
+.flaticon-bin:before {
+  content: ""; }
+
+.flaticon-right-arrow-1:before {
+  content: ""; }
+
+.flaticon-down-arrow:before {
+  content: ""; }
+
+.flaticon-left-arrow:before {
+  content: ""; }
+
+/*# sourceMappingURL=flaticon.css.map */

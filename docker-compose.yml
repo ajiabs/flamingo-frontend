@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  react-frontend:
+    build: .
+    image: react-frontend
+    ports:
+      - '${PORT}:${PORT}'
+    volumes:
+      - .:/react-frontend

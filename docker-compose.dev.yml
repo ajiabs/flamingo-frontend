@@ -1,0 +1,11 @@
+version: '3'
+services: 
+    react-frontend:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        env_file:
+         - ./environments/.env.dev
+        command: npm start
+        container_name: react-frontend
+        

@@ -1,0 +1,11 @@
+@import "../../styles/Variables/Variables.scss";
+
+.input{
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: $darkthemecolor;
+    color:#e3e3e3;
+    font-family: $sffont-regular;
+}

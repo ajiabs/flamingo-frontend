@@ -1,0 +1,123 @@
+@import "../../styles/Variables/Variables.scss";
+
+#addform{
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-bottom:30px;
+
+    #addheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+        margin-bottom: 20px;
+    }
+
+    .inputbox{
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        width: 100%;
+        color: $black-color;
+        font-size: 14px;
+    }
+    .inputbox1{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .dateinputbox{
+        padding: 7px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        width: 100%;
+        color: $black-color;
+        font-size: 14px;
+    }
+    .dateinputbox1{
+        padding: 7px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .formlabel{
+        font-family: $sffont-regular;
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .formbtn{
+        background-color: $primary-btncolor;
+        color: white;
+        border: none;
+        width: 100px;
+        font-size: 16px;
+        font-family:$sffont-medium;
+        padding: 11px;
+        border-radius: 5px;
+        margin-right: 10px;
+
+        &:hover{
+            background-color: $secondary-btncolor;
+        }
+    }
+    .resetbtn{
+        margin-left: 10px;
+        background-color: #b4b8c063;
+        color: #212529;
+        border: none;
+        width: 100px;
+        font-size: 16px;
+        padding: 11px;
+        border-radius: 5px;
+    }
+    .resetbtn:hover{
+        background-color: rgba(37, 105, 109, 0.864);
+        color:#fff;
+    }
+    
+    ::placeholder{
+        font-size: 14px;
+        color: $lightthemetext;
+    }
+    .labeltext{
+        color: $black-color;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: $sffont-medium;
+     }
+      .eyeicon{
+        margin-left: -30px;
+        cursor: pointer;
+      }
+
+      .arrowback{
+        float: right;
+        background-color: #dde2eb;
+        padding: 10px;
+        color: #39979d;
+        cursor: pointer;
+        border-radius: 3px;
+
+          &:hover{
+            background-color: #39979d;
+            color: #fff;
+          }
+      }
+  }
+  @media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

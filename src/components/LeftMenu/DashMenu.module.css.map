@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,QAAQ,CAAC,CAAC,CAAA;EACN,KAAK,EAJG,IAAI;EAKZ,SAAS,EAJF,IAAI;CAKd",
+    "sources": [
+        "DashMenu.module.scss"
+    ],
+    "names": [],
+    "file": "DashMenu.module.css"
+}

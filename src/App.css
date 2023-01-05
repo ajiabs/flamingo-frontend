@@ -1,0 +1,255 @@
+/* .App {
+  text-align: center;
+} */
+/* :root {
+  --black: #000;
+  --white: #f5f5f5;
+}
+
+body{
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body.light{
+  --background-color: var(--white);
+  --text-color:var(--black);
+}
+body.dark{
+  --background-color: var(--black);
+  --text-color:var(--white);
+} */
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 10px;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  color: #babfc7;
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #050420;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'SFUIDisplayRegular';
+}
+
+.cookie-banner p {
+  margin-bottom: 0px;
+  font-family: 'SFUIDisplayRegular';
+  font-size: 13px;
+}
+
+.close {
+  height: 30px;
+  width: 130px;
+  font-size: 11px;
+  background-color: #32c167;
+  border: none;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.react-confirm-alert-overlay{
+  background-color: #0e1726ba !important;
+}
+
+.react-confirm-alert-body>h1{
+  color: #0e1726e0 !important; 
+  font-family: 'SFUIDisplay-Medium' !important;
+  text-align: center !important;
+  font-size: 24px !important;
+}
+
+.react-confirm-alert-body {
+  background: #fff !important;
+  color: #0e1726e0 !important; 
+  font-family: 'SFUIDisplayRegular' !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+.react-confirm-alert-button-group{
+  justify-content: center !important;
+}
+.react-confirm-alert-button-group>button{
+  background: #39979d !important;
+  color: #fff !important;
+  font-family: 'SFUIDisplay-Medium' !important;
+}
+
+
+.react-date-picker__wrapper{
+  border: none !important;
+}
+
+/*Ag grid Table*/
+
+.ag-theme-alpine .ag-root-wrapper{
+  border: none !important;
+  background: transparent !important;
+  text-overflow: initial !important;
+}
+
+.ag-theme-alpine .ag-header{
+  border-bottom: none !important;
+  margin-bottom: 5px;
+  border-radius: 10px !important;
+  min-height: 45px !important;
+  border: none !important;
+  text-overflow: initial !important;
+  background: none !important;
+}
+
+.ag-header-cell-text{
+  text-overflow: initial !important;
+}
+
+/* .ag-header-cell-label{
+  text-overflow: initial !important;
+  overflow: initial !important;
+}
+
+.ag-cell-value{
+  text-overflow: initial !important;
+  overflow: initial !important;
+} */
+
+/* @media only screen and (max-width: 400px) {
+  .ag-theme-alpine .ag-header-cell{
+    width: 91px !important;
+  }
+} */
+
+
+/* .ag-root.ag-layout-normal{
+  overflow: scroll;
+} */
+
+/*Ag grid Pagination*/
+
+.ag-theme-alpine .ag-paging-panel{
+  border-top: none !important;
+  color: #60677e !important;
+  font-family: 'SFUIDisplayRegular' !important;
+}
+.ag-theme-alpine .ag-icon{
+  color: #60677e !important;
+}
+
+.ag-theme-alpine .ag-paging-panel>* {
+  margin: 0px -2px !important;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell{
+  width: auto !important;  /*table data cell width*/
+}
+
+
+/*date range*/
+
+.rdrCalendarWrapper{
+  position: absolute;
+  z-index: 1;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}
+
+.rdrStartEdge, .rdrInRange ,.rdrEndEdge{
+ color: #39979d !important;
+}
+
+.rdrDateDisplayItemActive{
+  border-color: #39979d !important;
+}
+
+
+.react-date-picker__inputGroup__input, .react-date-picker__inputGroup__divider{
+  color: #60677e !important; 
+}
+
+.react-date-picker__button svg{
+  stroke: #60677e;
+}
+
+
+
+
+.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected){
+  border: none !important;
+  border-color:  none !important;;
+  outline: none !important;
+}
+
+/* .ag-theme-alpine .ag-row-selected{
+  background: initial !important;
+} */
+
+/* .ag-theme-alpine .ag-row-hover{
+  background: #fff !important;
+} */
+
+
+.ag-center-cols-viewport{
+  height: calc(100% + 12px) !important;
+}
+
+
+.css-qc6sy-singleValue{
+  color: #60677e !important; 
+}
+
+
+.popup-arrow {
+  display: none !important;
+}
+
+input[type="checkbox" i] {
+  accent-color: #39979d !important;
+  vertical-align: middle;
+}
+
+
+input:focus{
+  outline: none !important;
+}

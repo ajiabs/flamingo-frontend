@@ -1,0 +1,28 @@
+@import "../../styles/Variables/Variables.scss";
+
+.indexdiv{
+
+    #addheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+        margin-bottom: 20px;
+    }
+    .exportsection{
+        float: right;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

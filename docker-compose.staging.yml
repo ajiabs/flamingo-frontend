@@ -1,0 +1,10 @@
+version: '3'
+services:
+    react-frontend:
+        build:
+            context: .
+            dockerfile: Dockerfile.staging
+        env_file:
+            - ./environments/.env.staging
+        command: npm run build
+        container_name: react-frontend-staging

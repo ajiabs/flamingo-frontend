@@ -1,0 +1,232 @@
+@import "../../styles/Variables/Variables.scss";
+.settingsection{
+    margin-bottom: 50px;
+    padding-bottom:30px;
+
+    #settingsheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+    }
+    .settingslinks{
+        color: #60677e;
+        margin-right: 50px;
+        font-size: 15px;
+        font-family: $sffont-regular;
+        text-decoration: none;
+        letter-spacing: 0.15em;
+        display: inline-block;
+        padding: 12px 20px;
+        position: relative;
+        // margin-left: -20px;   
+    }
+
+    .settingsgeneral{
+        color:  $primary-btncolor;
+        margin-right: 50px;
+        font-size: 15px;
+        font-family: $sffont-regular;
+        text-decoration: none;
+        letter-spacing: 0.15em;
+        display: inline-block;
+        padding: 11px 20px;
+        position: relative;
+        // margin-left: -20px;  
+        border-bottom: 2px solid $primary-btncolor;
+    }
+
+    
+    .settingslinks:hover{
+        color: $primary-btncolor;
+    }
+    
+    .settingsgeneral:hover{
+        color: $primary-btncolor;
+      }
+
+    .settingslinks:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 1.6px;
+        left: 50%;
+        position: absolute;
+        background: $primary-btncolor;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      .settingslinks:hover:after { 
+        width: 100%; 
+        left: 0; 
+        border-bottom: 2px solid $primary-btncolor;
+      }
+
+      #layoutnav{
+        border-radius: 5px;
+      }
+
+}
+                
+            #addform{
+
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    padding-bottom:15px;
+            
+                #addheading{
+                    font-size: 18px;
+                    font-family: $sffont-medium;
+                    margin-left: 10px;
+                }
+
+                .profilepicdiv{
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+                .profilepic{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 1px solid #21252975;
+                    padding: 5px;
+                }
+                .penicon{
+                    margin-right: 5px;
+                }
+
+                .namesection{
+                    display: inline-block;
+                    margin-left: 20px;
+                }
+
+                .profilename{
+                    font-size: 16px;
+                    font-family: $sffont-medium;
+                    margin-top: 30px;
+                }
+                .profileedit{
+                    font-size: 14px;
+                    font-family: $sffont-regular;
+                    text-decoration: none;
+                    color: $white-color;
+                    background-color: $primary-btncolor;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+
+                .profileedit:hover{
+                    background-color: $secondary-btncolor;
+                }
+            
+                .editbtntop{
+                    margin-top: 20px;
+                    float: right;
+                }
+
+
+                    #empdiv{
+                        padding:5px 0px 0px 15px;
+                        margin-bottom: 10px;
+                        border-radius: 5px;
+
+                        .title{
+                            font-family: $sffont-regular;
+                            font-size: 14px;
+                        }
+
+                        .empname{
+                            font-family: $sffont-medium;
+                            font-size: 14px;
+                            padding-bottom:8px;
+                            word-break: break-word;
+                        }
+                    }
+            }
+
+
+
+// @media only screen and (max-width: 1324px) {
+//     .editbtntop{
+//         margin-left: 40px !important;
+//     }
+//     }
+
+// @media only screen and (max-width: 1324px) {
+//     .editbtntop{
+//         margin-left: 20px !important;
+//     }
+// }
+
+// @media only screen and (max-width: 1200px) {
+//     .editbtntop{
+//         margin-left: 50px !important;
+//     }
+// }
+
+ @media only screen and (max-width: 992px) {
+    .editbtntop{
+       float: left !important;
+    }
+}
+
+@media only screen and (max-width: 878px) {
+    #layoutnav{
+        display: flex !important;
+      }
+      .settingslinks{
+        margin-right: 8px !important;
+        font-size: 14px !important;
+    }
+    .settingsgeneral{
+        margin-right: 8px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+      .settingslinks{
+        margin-right: 6px !important;
+        font-size: 13px !important;
+    }
+    .settingsgeneral{
+        margin-right: 6px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media only screen and (max-width: 495px) {
+    .settingslinks{
+      margin-right: 5px !important;
+      font-size: 12px !important;
+  }
+  .settingsgeneral{
+      margin-right: 5px !important;
+      font-size: 12px !important;
+  }
+}
+
+
+@media only screen and (max-width: 331px) {
+  .settingsgeneral,  .settingslinks{
+    padding: 12px !important;
+  }
+  .namesection{
+    margin-left: 5px !important;
+
+}
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

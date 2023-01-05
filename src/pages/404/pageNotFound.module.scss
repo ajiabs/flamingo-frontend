@@ -1,0 +1,54 @@
+@import "/src/styles/Variables/Variables.scss";
+
+#notfoundbg{
+    height: 100vh;
+}
+.centerbox{
+  
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: $black-color;
+    align-items: center;
+    height: max-content;
+}
+
+.imgdiv{
+    justify-content: center;
+    display: flex;
+}
+
+.pagenotimage{
+    width: 250px;
+    height: 200px;
+}
+.pagenotfoundhead{
+    font-size: 30px;
+    font-family: $sffont-bold;
+    color: #28305f;
+    text-align: center;
+    margin-top: 10px;
+}
+.pagenotfoundpara{
+    font-size: 18px;
+    font-family: $sffont-regular;
+    color: #28305f;
+    text-align: center;
+}
+
+.btnsection{
+    display: flex;
+    justify-content: center;
+}
+.gohomebtn{
+    background-color: #28305f;
+    color: $white-color;
+    border: none;
+    padding: 6px 20px 6px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: $sffont-regular;
+}

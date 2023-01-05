@@ -1,0 +1,71 @@
+@import "../../styles/Variables/Variables.scss";
+
+
+#addform{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-bottom: 40px;
+
+    #addheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+    }
+    
+    .formarea{
+        margin-top: 80px;
+    }
+
+    .inputbox{
+        padding: 6px;
+        border: 1px solid #ced4da;
+        border-radius:3px;
+        width: 100%;
+        font-size: 14px;
+    }
+    .inputbox1{
+        padding: 6px;
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        background-color: $darkthemecolor;
+        color: $lightthemetext;
+        font-family: $sffont-regular;
+    }
+    .formlabel{
+        font-family: $sffont-regular;
+        font-weight:normal;
+        font-size: 14px;
+    }
+    ::placeholder{
+        font-size: 12px;
+    }
+    .eyeicon{
+        margin-left: -30px;
+        cursor: pointer;
+      }
+    .savebtn{
+        border: none;
+        border-radius: 5px;
+        background-color: $primary-btncolor;
+        padding: 8px 12px;
+        color: $white-color;
+        font-size: 14px;
+        float: unset;
+
+        &:hover{
+            background-color: $secondary-btncolor;
+        }
+    }
+    .backbtn{
+        background-color: $secondary-btncolor;
+        color: white;
+        border: none;
+        width: 100px;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+}

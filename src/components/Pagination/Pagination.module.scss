@@ -1,0 +1,19 @@
+@import "/src/styles/Variables/Variables.scss";
+
+.paginationright{
+    float: right;
+    margin-right: 15px;
+
+    #pagetext{
+        font-size: 12px;
+    }
+
+    #pagebtn{
+        background: none;
+        border: none;
+        width: 25px;
+        height: 25px;
+        margin-top: 5px;
+    }
+}
+

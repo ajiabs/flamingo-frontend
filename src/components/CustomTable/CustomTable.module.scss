@@ -1,0 +1,164 @@
+@import "/src/styles/Variables/Variables.scss";
+
+
+#container{
+  padding: 0px;
+}
+
+#tableheading{
+    font-size: 16px;
+    font-family: $sffont-medium;
+    margin-top: 20px;
+  }
+
+.search_box{
+  position: relative;
+}
+  
+#searchbar{
+    padding: 3px 5px 6px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid rgba(81, 83, 101, 0.28);
+  }
+
+#spinner{
+  float: right;
+  margin-top: -25px;
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+  cursor: pointer;
+  color: $primary-btncolor;
+}
+
+
+.tablebtn{
+    width: 70px;
+    padding: 6px;
+    border:  none;
+    background-color: $primary-btncolor;
+    border-radius: 5px;
+    color: $white-color;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: $sffont-regular;
+    font-size: 14px;
+
+    &:hover{
+      background-color: $secondary-btncolor;
+    }
+  }
+
+table{
+    border-collapse:separate !important;
+    border-spacing:0 6px !important;
+  }
+
+// Set border-radius on the top-left and bottom-left of the first table data on the table row
+td:first-child,
+th:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+// Set border-radius on the top-right and bottom-right of the last table data on the table row
+td:last-child,
+th:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+  
+.tableheaddiv{
+  display: flex;
+}
+  th,td{
+    font-size: 13px;
+    font-family: $sffont-regular;
+     
+  }
+
+  th{
+    padding: 0.8rem 1rem !important;
+
+  }
+
+  td{
+    padding: .5rem 1rem !important;
+    line-height: 28px;
+  }
+
+
+
+// .order_date{
+//     margin-top: 5px;
+//     font-size: 12px;
+//     color: #898989;
+//     font-weight: normal;
+//   }
+
+.sortbtn{
+  border: none;
+  background: none;
+  color: #6E6E6E;
+  }
+
+.order_date{
+    margin-top: 5px;
+    font-size: 12px;
+    color:#000;
+    font-weight: normal;
+  }
+
+h6{
+  color: #000;
+  }
+
+  
+  .norecord{
+    font-family: $sffont-medium;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #ff0000b0;
+  }
+
+
+.sectionright{
+  float: right;
+  display: flex;
+
+  #dropdown{
+    margin:10px;
+  }
+  #dropdown button{
+      background-color:$primary-btncolor;
+      border-radius:5px;
+      border:none;
+      box-shadow:none;
+      font-size:14px;
+      font-family: $sffont-regular;
+  }
+  a{
+      font-size:14px;
+      font-family: $sffont-regular;
+  }
+  #del_icon{
+    font-size: 12px;
+    margin-left:5px;
+}
+
+}
+
+
+@media only screen and (max-width: 600px) {
+  #dashboardcont2{
+      width: $dashwidth;
+      left: $dashleft;
+      position: relative;
+      padding: $dashboardpadding;
+  }
+}
+ tr:nth-child(even){
+  background-color: #fcfcfc;
+} 
+
+

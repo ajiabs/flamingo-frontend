@@ -1,0 +1,6 @@
+[
+  {
+    "name": "boilerplate-web",
+    "imageUri": "029374045432.dkr.ecr.us-west-2.amazonaws.com/boilerplate-frontend:latest"
+  }
+]

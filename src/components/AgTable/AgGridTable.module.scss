@@ -1,0 +1,84 @@
+@import "/src/styles/Variables/Variables.scss";
+
+#tableheading{
+  font-size: 18px;
+  font-family: $sffont-regular;
+  margin-top: 20px;
+}
+
+.sectionright{
+  float: right;
+  margin-right: 13px;
+}
+
+
+#searchbar{
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%;
+  font-family: $sffont-regular;
+  margin-right: 10px;
+  border: 1px solid rgba(81, 83, 101, 0.28);
+}
+
+
+::placeholder{
+  font-size: 14px;
+  color: #babfc7;
+}
+
+.tableaddbtn{
+    padding: 6px;
+    width: 70px;
+    border: none;
+    background-color: $primary-btncolor;
+    border-radius: 5px;
+    color: $white-color;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: $sffont-regular;
+    font-size: 14px;
+
+    &:hover{
+      background-color: $secondary-btncolor;
+    }
+}
+
+#actionbtn{ 
+  border: none;
+  margin-right: 10px;
+  font-family: $sffont-regular !important;
+  border-radius: 5px;
+  background: none;
+  font-weight: 100;
+}
+
+
+.headercolorlight {
+  background-color: #E9EAF0;
+  color: #1d1d1d;
+  font-family: $sffont-bold;
+  text-overflow: initial !important;
+  
+}
+.headercolordark {
+  background-color: #1e1e2d; 
+  color: #737a92;
+  font-family: $sffont-bold;
+  text-overflow: initial !important;
+}
+
+#searchboxpad{
+  padding-right: 0px;
+}
+
+.add_icon{
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+  .sectionright{
+    float: left;
+  }
+}

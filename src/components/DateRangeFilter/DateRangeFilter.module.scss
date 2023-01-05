@@ -1,0 +1,45 @@
+@import "/src/styles/Variables/Variables.scss";
+
+#chooseheading{
+    font-size: 14px;
+    font-family: $sffont-regular;
+    margin-bottom: 5px;
+}
+
+.openbtn{
+    border: none;
+    background-color: $primary-btncolor;
+    color: white;
+    border-radius: 5px;
+    font-size: 7px;
+    font-family:  $sffont-regular;
+    padding: 10px 10px 10px 18px;
+
+    &:hover{
+        background-color: $secondary-btncolor;
+    }
+}
+
+.datepicker{
+    width: 100px;
+}
+#dateview{
+    border-radius: 5px;
+    width: 190px;
+    padding: 9px;
+    border: 1px solid #dde2eb;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.calendaricon{
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+
+@media only screen and (max-width: 340px) {
+    .openbtn {
+      margin-top: 15px;
+    }
+  }
