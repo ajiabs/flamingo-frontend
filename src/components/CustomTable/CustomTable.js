@@ -33,6 +33,7 @@ function CustomTable({ data, viewPopUp, toggleButton, section, deleteCondition }
   const { tableheadStyle } = useContext(TableContext);
   const { tablebodyStyle } = useContext(TableContext);
   const [tableData, setTableData] = useState([]);
+  const [timer, setTimer] = useState(null);
   const dispatch = useDispatch();
   const {
     selected,
@@ -160,12 +161,21 @@ function CustomTable({ data, viewPopUp, toggleButton, section, deleteCondition }
     }
   };
   const onFilterTextChange = (e) => {
-    const { value } = e.target;
-    if (value.length > 0) {
-      setSearchTerm(e.target.value);
-    } else {
-      setSearchTerm(null);
+    const even = e;
+    if (timer) {
+      clearTimeout(timer);
+      setTimer(null);
     }
+    setTimer(
+      setTimeout(() => {
+        const { value } = even.target;
+        if (value.length > 0) {
+          setSearchTerm(even.target.value);
+        } else {
+          setSearchTerm(null);
+        }
+      }, 1000)
+    );
   };
   return (
     <div className={styles[bodyStyle]}>
@@ -185,8 +195,6 @@ function CustomTable({ data, viewPopUp, toggleButton, section, deleteCondition }
                     type="search"
                     onChange={onFilterTextChange}
                     placeholder="Search"
-                    value={search}
-                    readOnly={tableLoading}
                   />
                   <div
                     className={tableLoading ? 'spinner-border spinner-border-sm' : ''}
