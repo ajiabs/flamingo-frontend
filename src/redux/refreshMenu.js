@@ -17,7 +17,7 @@ export const refreshMenu = createAsyncThunk('api/refreshMenu', async (data) => {
     .post(`${SERVER_URL}/${refresh}`, body, { headers })
     .then((response) => {
       if (response.status === 200) {
-        setCookies('USERMENU', response.data.data.userMenu.userMenu);
+        // setCookies('USERMENU', response.data.data.userMenu.userMenu);
         setCookies('USERPERMISSION', response.data.data.userMenu.permission);
       }
       return response.data;

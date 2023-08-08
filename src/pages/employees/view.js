@@ -11,7 +11,7 @@ import { TableContext } from '../../contexts/tableContext';
 import styles from './view.module.scss';
 import envValues from '../../enviornment';
 
-function ViewEmployee() {
+const ViewEmployee = React.memo(() => {
   const navigate = useNavigate();
   const { dashboardStyle } = useContext(TableContext);
   const { setDashboardHeader } = useContext(TableContext);
@@ -21,11 +21,11 @@ function ViewEmployee() {
   let empId;
   const params = useParams();
   const token = `Bearer ${getCookies('Token')}`;
-  const [loading, setLoading] = useState(false);
-  const [details, setDetails] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  const [details, setDetails] = useState({ loading: true, data: [] });
   let statusCode;
   const getUserDetails = async () => {
-    setLoading(true);
+    // setLoading(true);
     axios
       .get(`${envValues.REACT_APP_API_ENDPOINT}/employee/${empId}`, {
         method: 'GET',
@@ -37,14 +37,15 @@ function ViewEmployee() {
       })
       .then((res) => {
         if (statusCode === 200) {
-          setDetails(res.data.data.user);
-          setLoading(false);
+          setDetails({ loading: false, data: res.data.data.user });
+          // setLoading(false);
         } else {
-          setLoading(false);
+          // setLoading(false);
+          setDetails({ loading: false });
         }
       })
       .catch((err) => {
-        setLoading(false);
+        setDetails({ loading: false });
         return err;
       });
   };
@@ -71,7 +72,7 @@ function ViewEmployee() {
             }}
             className={styles.arrowback}
           />
-          {loading ? (
+          {details.loading ? (
             <SpinnerDotted
               style={{
                 left: '50%',
@@ -92,8 +93,8 @@ function ViewEmployee() {
                       className={styles.profilepic}
                     />
                     <div className={styles.namesection}>
-                      <span className={styles.profilename}>{details.name}</span>
-                      <p className={styles.profileemail}>{details.email}</p>
+                      <span className={styles.profilename}>{details.data.name}</span>
+                      <p className={styles.profileemail}>{details.data.email}</p>
                     </div>
                   </div>
                 </Col>
@@ -105,13 +106,13 @@ function ViewEmployee() {
                       <Col lg={4}>
                         <div className={styles[viewformStyle]} id={styles.empdiv}>
                           <span className={styles.title}>Name</span>
-                          <p className={styles.empname}>{details.name}</p>
+                          <p className={styles.empname}>{details.data.name}</p>
                         </div>
                       </Col>
                       <Col lg={4}>
                         <div className={styles[viewformStyle]} id={styles.empdiv}>
                           <span className={styles.title}>Email</span>
-                          <p className={styles.empname}>{details.email}</p>
+                          <p className={styles.empname}>{details.data.email}</p>
                         </div>
                       </Col>
                     </Row>
@@ -119,13 +120,13 @@ function ViewEmployee() {
                       <Col lg={4}>
                         <div className={styles[viewformStyle]} id={styles.empdiv}>
                           <span className={styles.title}>Phone Number</span>
-                          <p className={styles.empname}>{details.phone}</p>
+                          <p className={styles.empname}>{details.data.phone}</p>
                         </div>
                       </Col>
                       <Col lg={4}>
                         <div className={styles[viewformStyle]} id={styles.empdiv}>
                           <span className={styles.title}>Designation</span>
-                          <p className={styles.empname}>{details.designation}</p>
+                          <p className={styles.empname}>{details.data.designation}</p>
                         </div>
                       </Col>
                     </Row>
@@ -133,7 +134,9 @@ function ViewEmployee() {
                       <Col lg={4}>
                         <div className={styles[viewformStyle]} id={styles.empdiv}>
                           <span className={styles.title}>Status</span>
-                          <p className={styles.empname}>{details.status ? 'Active' : 'InActive'}</p>
+                          <p className={styles.empname}>
+                            {details.data.status ? 'Active' : 'InActive'}
+                          </p>
                         </div>
                       </Col>
                     </Row>
@@ -146,6 +149,6 @@ function ViewEmployee() {
       </div>
     </div>
   );
-}
+});
 
 export default ViewEmployee;

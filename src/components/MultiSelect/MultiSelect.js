@@ -79,7 +79,7 @@ function MultiSelect({
       <label className={labelstyle} htmlFor={name}>
         {label ?? 'Multi Select'}
       </label>
-      {mandatory ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory ? <span style={{ color: 'red', marginLeft: '3px' }}>*</span> : <span />}
       <Controller
         name={name}
         rules={{

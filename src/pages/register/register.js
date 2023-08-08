@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable global-require */
 /* eslint-disable max-len */
 import React, { useState, Suspense, lazy, useContext } from 'react';
@@ -6,6 +7,7 @@ import { SpinnerDotted } from 'spinners-react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Container, Image } from 'react-bootstrap';
+import { firebaseSignUp } from 'bubble-chat-web';
 import { TableContext } from '../../contexts/tableContext';
 // import { logIn } from '../Redux/LoginSlice';
 import { signUp } from '../../redux/RegistrationSlice';
@@ -27,6 +29,23 @@ function Register() {
   const [submiting, setSubmitting] = useState(false);
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
+  const [firebaseConfig, setFirebaseConfig] = useState({
+    apiKey: 'AIzaSyDoVlrAIxZOzfUSeAyffbggI47oor3UhLo',
+
+    authDomain: 'bubblechat-49050.firebaseapp.com',
+
+    databaseURL: 'https://bubblechat-49050-default-rtdb.firebaseio.com',
+
+    projectId: 'bubblechat-49050',
+
+    storageBucket: 'bubblechat-49050.appspot.com',
+
+    messagingSenderId: '788327314469',
+
+    appId: '1:788327314469:web:352ed04c771d0fcaa0fbcc',
+
+    measurementId: 'G-VKB15SJ1LP',
+  });
   const {
     register,
     handleSubmit,
@@ -51,10 +70,20 @@ function Register() {
         phone: data.phonenumber.trim(),
         password: data.password,
       };
-      dispatch(signUp(apiData)).then((resp) => {
+      const userData = {
+        name: data.name.trim(),
+        email: data.email,
+        phone: data.phonenumber.trim(),
+        password: data.password,
+        avatarRef: '',
+        avatarSource: '',
+        image: '',
+      };
+      dispatch(signUp(apiData)).then(async (resp) => {
         setSubmitting(false);
         if (resp.payload.success) {
           setSubmitting(false);
+          const data234 = await firebaseSignUp(userData, firebaseConfig);
           setTimeout(() => {
             navigate('/');
           }, 3000);

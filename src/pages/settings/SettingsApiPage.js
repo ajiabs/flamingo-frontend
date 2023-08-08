@@ -64,7 +64,7 @@ function SettingsApi() {
       {Object.keys(settingsApiData.values).length !== 0 ? (
         <div className={styles[formthemeStyle]} id={styles.addform}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Row className="mt-3">
+            <Row>
               <Col md={4} sm={4}>
                 <Suspense
                   fallback={

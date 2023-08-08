@@ -53,7 +53,6 @@ function MultipleFileUpload({ editFiles, section }) {
         headers: { Authorization: token },
       })
       .then((res) => {
-        console.log(res);
         setEdited(res.data.data.user.files);
         toast.success('File removed!');
       });

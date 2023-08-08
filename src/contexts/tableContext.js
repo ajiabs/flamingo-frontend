@@ -50,6 +50,8 @@ function TableContextProvider(props) {
   const [search, setSearchTerm] = useState(null);
   const [selected, setselected] = useState([]);
   const [files, setFiles] = useState([]);
+  const [notificationUnreadCount, setNotificationUnreadCount] = useState(0);
+  const [userMenus, setUserMenus] = useState([]);
   const value = {
     profiledropdownStyle,
     profiledropdownSetStyle,
@@ -133,6 +135,10 @@ function TableContextProvider(props) {
     setSearchTerm,
     files,
     setFiles,
+    notificationUnreadCount,
+    setNotificationUnreadCount,
+    userMenus,
+    setUserMenus,
   };
   return <TableContext.Provider value={value}>{props.children}</TableContext.Provider>;
 }

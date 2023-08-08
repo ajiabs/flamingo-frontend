@@ -17,7 +17,7 @@ import { Entry } from '../../redux/entrySlice';
 const EmailInput = lazy(() => import('../../components/EmailBox/EmailBox'));
 const PhoneNumberInput = lazy(() => import('../../components/PhoneNumberBox/PhoneNumberBox'));
 const TextInput = lazy(() => import('../../components/TextField/TextField'));
-function ProfileEdit() {
+const ProfileEdit = React.memo(() => {
   const [submiting, setSubmitting] = useState(false);
   const { bodyStyle } = useContext(TableContext);
   const { formthemeStyle } = useContext(TableContext);
@@ -177,6 +177,6 @@ function ProfileEdit() {
       </div>
     </div>
   );
-}
+});
 
 export default ProfileEdit;

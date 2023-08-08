@@ -39,7 +39,11 @@ function EmailInput({
       <label htmlFor={fieldName} className={classNames ?? labelstyle}>
         {label ?? ''}
       </label>
-      {mandatory || isRequired ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory || isRequired ? (
+        <span style={{ color: 'red', marginLeft: '3px' }}>*</span>
+      ) : (
+        <span />
+      )}
       <input
         type="text"
         className={classNamess ?? className}

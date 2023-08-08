@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Decrypt } from '../../utilityFunctions/utilsFunctions';
 import { REACT_APP_API_SKILLS } from '../../redux/apiConstants';
 
-function EmployeeEdit() {
+const EmployeeEdit = React.memo(() => {
   const { dashboardStyle } = useContext(TableContext);
   const { setDashboardHeader } = useContext(TableContext);
   const [submiting, setSubmitting] = useState(false);
@@ -261,6 +261,6 @@ function EmployeeEdit() {
       </div>
     </div>
   );
-}
+});
 
 export default EmployeeEdit;

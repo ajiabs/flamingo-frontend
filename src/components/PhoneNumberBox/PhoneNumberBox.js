@@ -36,7 +36,7 @@ function PhoneNumberInput({
       <label htmlFor={fieldName} className={classNames ?? labelstyle}>
         {label ?? ''}
       </label>
-      {mandatory ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory ? <span style={{ color: 'red', marginLeft: '3px' }}>*</span> : <span />}
       <input
         type="tel"
         onKeyDown={handleKeyDown}

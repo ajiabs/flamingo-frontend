@@ -69,7 +69,7 @@ function SelectBox({
       <label className={labelstyle} htmlFor={name}>
         {label ?? 'SelectBox'}
       </label>
-      {mandatory ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory ? <span style={{ color: 'red', marginLeft: '3px' }}>*</span> : <span />}
       <Controller
         name={name}
         control={control}

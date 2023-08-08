@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -14,7 +15,7 @@ import { Entry } from '../../redux/entrySlice';
 import { TableContext } from '../../contexts/tableContext';
 import styles from './create.module.scss';
 
-function EmployeeCreate() {
+const EmployeeCreate = React.memo(() => {
   const { dashboardStyle } = useContext(TableContext);
   const { setDashboardHeader } = useContext(TableContext);
   const { bodyStyle } = useContext(TableContext);
@@ -234,6 +235,6 @@ function EmployeeCreate() {
       </div>
     </div>
   );
-}
+});
 
 export default EmployeeCreate;

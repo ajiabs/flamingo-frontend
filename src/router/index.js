@@ -7,7 +7,7 @@ import { getCookies, removeCookies } from '../hooks/useCookies';
 import Settings from '../pages/settings/settings';
 import ViewUsers from '../pages/users/viewUser';
 import UserEdit from '../pages/users/editUser';
-import UserIndex from '../pages/users/index';
+// import UserIndex from '../pages/users/index';
 import UserCreate from '../pages/users/createUser';
 import Preferences from '../pages/settings/preferences';
 import CreateRoles from '../pages/roles/createRoles';
@@ -20,6 +20,7 @@ import PermissionDenied from '../pages/permission/permission';
 import ProfileLayout from '../pages/profile/profileLayout';
 
 const Login = lazy(() => import('../pages/logIn/logIn'));
+const UserIndex = lazy(() => import('../pages/users/index'));
 const UserVerification = lazy(() => import('../pages/verify/userVerfication'));
 const Register = lazy(() => import('../pages/register/register'));
 const Forgetpassword = lazy(() => import('../pages/passwords/forgetPassword'));
@@ -28,6 +29,7 @@ const EmployeeCreate = lazy(() => import('../pages/employees/create'));
 const EmployeeEdit = lazy(() => import('../pages/employees/edit'));
 const ResetPassword = lazy(() => import('../pages/passwords/resetPassword'));
 const Dashboard = lazy(() => import('../pages/dashboard/dashboard'));
+const ChatContainer = lazy(() => import('../pages/chatContainer/chatContainer'));
 const HooksTest = lazy(() => import('../components/hooksFormTest'));
 const CustomHooksTest = lazy(() => import('../hooks/customHooksTest'));
 const MyForm = lazy(() => import('../components/PhoneNumberBox/PhoneNumberBox'));
@@ -39,6 +41,11 @@ const ProfileEdit = lazy(() => import('../pages/profile/profileEdits'));
 const Faq = lazy(() => import('../cms/faq'));
 const ViewEmployee = lazy(() => import('../pages/employees/view'));
 const ViewRole = lazy(() => import('../pages/roles/view'));
+const MoviesIndex = lazy(() => import('../pages/movies/index'));
+const MoviesCreate = lazy(() => import('../pages/movies/create'));
+const MoviesEdit = lazy(() => import('../pages/movies/edit'));
+const ViewMovies = lazy(() => import('../pages/movies/view'));
+const NotificationsIndex = lazy(() => import('../pages/notifications/index'));
 export default function Routers() {
   return (
     <Router>
@@ -54,7 +61,7 @@ export default function Routers() {
                     <SpinnerDotted
                       style={{
                         left: '50%',
-                        position: 'relative',
+                        position: 'absolute',
                         textAlign: 'center',
                         top: '50%',
                         color: '#39979d',
@@ -231,6 +238,26 @@ export default function Routers() {
           />
           <Route
             exact
+            path="/chat"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <SpinnerDotted
+                      style={{ marginTop: '250px', marginLeft: '300px', color: '#39979d' }}
+                    />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <ChatContainer />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            exact
             path="/roles/create"
             element={
               <Suspense
@@ -382,6 +409,101 @@ export default function Routers() {
                 <ProtectedRoute>
                   {' '}
                   <ViewEmployee />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path="/notifications"
+            element={
+              <Suspense
+                fallback={
+                  <div style={{ textAlign: 'center', marginTop: '400px', color: '#39979d' }}>
+                    <SpinnerDotted />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <NotificationsIndex />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path="/movies"
+            element={
+              <Suspense
+                fallback={
+                  <div style={{ textAlign: 'center', marginTop: '400px', color: '#39979d' }}>
+                    <SpinnerDotted />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <MoviesIndex />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path="/movies/create"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <SpinnerDotted
+                      style={{ marginTop: '250px', marginLeft: '300px', color: '#39979d' }}
+                    />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <MoviesCreate />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/movies/edit/:userId"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <SpinnerDotted
+                      style={{ marginTop: '250px', marginLeft: '300px', color: '#39979d' }}
+                    />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <MoviesEdit />
+                </ProtectedRoute>
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path="/movies/viewdetails/:userId"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <SpinnerDotted
+                      style={{ marginTop: '250px', marginLeft: '300px', color: '#39979d' }}
+                    />
+                  </div>
+                }
+              >
+                <ProtectedRoute>
+                  {' '}
+                  <ViewMovies />
                 </ProtectedRoute>
               </Suspense>
             }
@@ -736,7 +858,7 @@ export default function Routers() {
 // eslint-disable-next-line react/prop-types
 function ProtectedRoute({ children }) {
   if (document.cookie && getCookies('Token')) {
-    if (getCookies('USERMENU')) {
+    if (getCookies('USERPERMISSION')) {
       return children;
     }
     removeCookies('Token');
@@ -750,6 +872,5 @@ function ProtectedRoute({ children }) {
 
 // eslint-disable-next-line react/prop-types
 function UnProtectedRoute({ children }) {
-  const userMenu = getCookies('USERMENU');
-  return getCookies('Token') ? <Navigate to={userMenu[0].urlPath} /> : children;
+  return getCookies('Token') ? <Navigate to="/dashboard" /> : children;
 }

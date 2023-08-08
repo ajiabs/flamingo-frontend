@@ -18,7 +18,7 @@ function CheckBoxField({ fieldName, label, register, errors, labelstyle, isRequi
       <label className={labelstyle} htmlFor={fieldName}>
         {label ?? 'checkbox'}
       </label>
-      {mandatory ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory ? <span style={{ color: 'red', marginLeft: '3px' }}>*</span> : <span />}
       <p
         style={{
           color: 'red',

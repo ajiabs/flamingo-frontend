@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container, Image } from 'react-bootstrap';
@@ -9,7 +10,7 @@ import styles from './TableViewPopup.module.scss';
 import { DateFormatter } from '../../utilityFunctions/utilsFunctions';
 import envValues from '../../enviornment';
 
-function TableViewPopup({ dataId, handleClose, section }) {
+const TableViewPopup = React.memo(({ dataId, handleClose, section }) => {
   const { formthemeStyle } = useContext(TableContext);
   const { bodyheader } = useContext(TableContext);
   const { viewformStyle } = useContext(TableContext);
@@ -137,7 +138,7 @@ function TableViewPopup({ dataId, handleClose, section }) {
       </div>
     </div>
   );
-}
+});
 
 TableViewPopup.propTypes = {
   dataId: PropTypes.string.isRequired,

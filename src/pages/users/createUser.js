@@ -180,7 +180,7 @@ function UserCreate() {
                 </div>
                 <div className="col-lg-6 col-md-12 col-sm-12">
                   <Label className={styles.formlabel}>Date of Birth</Label>
-                  <span style={{ color: 'red' }}>*</span>
+                  <span style={{ color: 'red', marginLeft: '3px' }}>*</span>
                   <DatePickerComponent
                     className={styles.dateinputbox}
                     classNamedark={styles.dateinputbox1}
@@ -197,7 +197,6 @@ function UserCreate() {
                   <MultipleFileUpload />
                 </div>
               </div>
-              <br />
               <div className="d-flex">
                 <input
                   className={styles.formbtn}

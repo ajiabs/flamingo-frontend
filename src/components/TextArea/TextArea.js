@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TextAreaField({
+  fieldName,
+  className,
+  classNamedark,
   label,
   labelstyle,
   labeldarkstyle,
-  fieldName,
   register,
   errors,
   placeHolder,
@@ -14,9 +16,11 @@ function TextAreaField({
   mandatory,
 }) {
   let classNames = labelstyle;
+  let classNamess = className;
 
   if (localStorage.getItem('theme') === 'dark') {
     classNames = labeldarkstyle;
+    classNamess = classNamedark;
   }
   return (
     <div className="form-field">
@@ -26,6 +30,7 @@ function TextAreaField({
       {mandatory || isRequired ? <span style={{ color: 'red' }}>*</span> : <span />}
       <textarea
         placeholder={placeHolder ?? 'Type Here'}
+        className={classNamess ?? className}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...register(fieldName, {
           required: {
@@ -52,6 +57,8 @@ function TextAreaField({
 
 TextAreaField.propTypes = {
   fieldName: PropTypes.element.isRequired,
+  className: PropTypes.string,
+  classNamedark: PropTypes.string,
   labelstyle: PropTypes.element.isRequired,
   label: PropTypes.element,
   register: PropTypes.element.isRequired,
@@ -65,9 +72,11 @@ TextAreaField.propTypes = {
 TextAreaField.defaultProps = {
   mandatory: false,
   isRequired: false,
+  classNamedark: null,
   labeldarkstyle: null,
   label: 'Text Area',
   placeHolder: 'Enter Value',
   minimLength: 100,
+  className: 'default-input-class',
 };
 export default TextAreaField;

@@ -38,7 +38,11 @@ function PasswordField({
       <label htmlFor={fieldName} className={classNames ?? labelstyle}>
         {label ?? ''}
       </label>
-      {mandatory || isRequired ? <span style={{ color: 'red' }}>*</span> : <span />}
+      {mandatory || isRequired ? (
+        <span style={{ color: 'red', marginLeft: '3px' }}>*</span>
+      ) : (
+        <span />
+      )}
       <input
         type={type ? 'text' : 'password'}
         className={classNamess ?? className}

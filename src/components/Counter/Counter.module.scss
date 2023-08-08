@@ -29,6 +29,7 @@
     font-family: $sffont-medium;
     color: $white-color;
     text-decoration:none;
+    margin-bottom: 0;
 }
 .countericon{
     padding-right: 10px;
@@ -42,3 +43,11 @@
     color:#fff;
     cursor: pointer;
 }
+
+
+  
+@media only screen and (max-width: 410px) {
+    .card_para{
+        font-size: 16px !important;
+    }
+  }

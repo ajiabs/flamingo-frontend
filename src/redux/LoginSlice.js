@@ -20,7 +20,7 @@ export const logIn = createAsyncThunk('api/logIn', async (data) => {
         setCookies('PROFILE', response.data.data.user.image);
         setCookies('USERNAME', response.data.data.user.name);
         setCookies('USERROLE', response.data.data.user.role.name);
-        setCookies('USERMENU', response.data.data.userMenu);
+        // setCookies('USERMENU', response.data.data.userMenu);
         setCookies('USERPERMISSION', response.data.data.user.role.permissions);
         setCookies('THEME', 'false');
         return response.data;

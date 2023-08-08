@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
@@ -11,9 +12,8 @@ import { TableContext } from '../../contexts/tableContext';
 import styles from './view.module.scss';
 import envValues from '../../enviornment';
 
-function ViewEmployee() {
+const ViewEmployee = React.memo(() => {
   const params = useParams();
-  const [sections, setSections] = useState();
   const { dashboardStyle } = useContext(TableContext);
   const { setDashboardHeader } = useContext(TableContext);
   const { bodyStyle } = useContext(TableContext);
@@ -43,12 +43,6 @@ function ViewEmployee() {
       })
       .then((res) => {
         if (statusCode === 200) {
-          console.log(res);
-          const tempArray = [];
-          Object.keys(res.data.data.response.modules).forEach((value) => {
-            tempArray.push(value);
-          });
-          setSections(tempArray);
           setDetails(res.data.data.response.result);
           setLoading(false);
         } else {
@@ -116,48 +110,93 @@ function ViewEmployee() {
                         <span className={styles.content_title}>Permissions</span>
                         {details.permissions &&
                           details.permissions.map((item) => (
-                            <>
-                              {sections.map(
-                                (datas) =>
-                                  datas === item.section.toLowerCase() && (
-                                    <div
-                                      className={styles[permissionboxStyle]}
-                                      id={styles.permissionbox}
-                                    >
-                                      <h5 className={styles[bodyheader]} id={styles.addheading}>
-                                        {CapitalizeFirstLetter(item.section)}
-                                      </h5>
-                                      <ul>
-                                        {Object.keys(item).map(
-                                          (act, index) =>
-                                            act !== 'section' &&
-                                            act !== 'list' && (
-                                              <li key={act}>
-                                                <div>
-                                                  <div>
-                                                    <label
-                                                      htmlFor={`custom-checkbox-${index}`}
-                                                      className={styles.selectlabel}
-                                                    >
-                                                      {act !== 'list' ? act : ''}
-                                                    </label>
-                                                    <span className={styles.checkicon}>
-                                                      {item[act] ? (
-                                                        <FontAwesomeIcon icon={faCheckCircle} />
-                                                      ) : (
-                                                        <FontAwesomeIcon icon={faXmarkCircle} />
-                                                      )}
-                                                    </span>
-                                                  </div>
-                                                </div>
-                                              </li>
-                                            )
+                            <div className={styles[permissionboxStyle]} id={styles.permissionbox}>
+                              <h5 className={styles[bodyheader]} id={styles.addheading}>
+                                {CapitalizeFirstLetter(item.section)}
+                              </h5>
+                              <div>
+                                {Object.keys(item).map(
+                                  (act, index) =>
+                                    act !== 'section' &&
+                                    act !== 'list' && (
+                                      <div key={act}>
+                                        {act === 'submenu' ? (
+                                          item.submenu.map((subitem) => (
+                                            <div className="mt-3">
+                                              <h5
+                                                className={styles[bodyheader]}
+                                                id={styles.addheading}
+                                              >
+                                                {CapitalizeFirstLetter('submenu')}
+                                              </h5>
+                                              <div
+                                                className={styles[permissionboxStyle]}
+                                                id={styles.permissionbox}
+                                              >
+                                                <h5
+                                                  className={styles[bodyheader]}
+                                                  id={styles.addheading}
+                                                >
+                                                  {CapitalizeFirstLetter(subitem.section)}
+                                                </h5>
+                                                <ul>
+                                                  {Object.keys(subitem).map(
+                                                    (subAct, subIndex) =>
+                                                      subAct !== 'section' &&
+                                                      subAct !== 'list' && (
+                                                        <li key={subAct}>
+                                                          <div>
+                                                            <div>
+                                                              <label
+                                                                htmlFor={`custom-checkbox-${subIndex}`}
+                                                                className={styles.selectlabel}
+                                                              >
+                                                                {subAct !== 'list' ? subAct : ''}
+                                                              </label>
+                                                              <span className={styles.checkicon}>
+                                                                {subitem[subAct] ? (
+                                                                  <FontAwesomeIcon
+                                                                    icon={faCheckCircle}
+                                                                  />
+                                                                ) : (
+                                                                  <FontAwesomeIcon
+                                                                    icon={faXmarkCircle}
+                                                                  />
+                                                                )}
+                                                              </span>
+                                                            </div>
+                                                          </div>
+                                                        </li>
+                                                      )
+                                                  )}
+                                                </ul>
+                                              </div>
+                                            </div>
+                                          ))
+                                        ) : (
+                                          <div>
+                                            <div>
+                                              <label
+                                                htmlFor={`custom-checkbox-${index}`}
+                                                className={styles.selectlabel}
+                                              >
+                                                {act !== 'list' ? act : ''}
+                                              </label>
+                                              <span className={styles.checkicon}>
+                                                {item[act] ? (
+                                                  <FontAwesomeIcon icon={faCheckCircle} />
+                                                ) : (
+                                                  <FontAwesomeIcon icon={faXmarkCircle} />
+                                                )}
+                                              </span>
+                                            </div>
+                                          </div>
                                         )}
-                                      </ul>
-                                    </div>
-                                  )
-                              )}
-                            </>
+                                      </div>
+                                    )
+                                )}
+                              </div>
+                            </div>
                           ))}
                       </Col>
                     </Row>
@@ -170,6 +209,6 @@ function ViewEmployee() {
       </div>
     </div>
   );
-}
+});
 
 export default ViewEmployee;

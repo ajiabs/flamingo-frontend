@@ -20,7 +20,6 @@ body.dark{
   --text-color:var(--white);
 } */
 
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -90,12 +89,12 @@ body.dark{
   cursor: pointer;
 }
 
-.react-confirm-alert-overlay{
+.react-confirm-alert-overlay {
   background-color: #0e1726ba !important;
 }
 
-.react-confirm-alert-body>h1{
-  color: #0e1726e0 !important; 
+.react-confirm-alert-body > h1 {
+  color: #0e1726e0 !important;
   font-family: 'SFUIDisplay-Medium' !important;
   text-align: center !important;
   font-size: 24px !important;
@@ -103,36 +102,35 @@ body.dark{
 
 .react-confirm-alert-body {
   background: #fff !important;
-  color: #0e1726e0 !important; 
+  color: #0e1726e0 !important;
   font-family: 'SFUIDisplayRegular' !important;
   text-align: center !important;
   font-size: 14px !important;
   font-weight: bold;
 }
 
-.react-confirm-alert-button-group{
+.react-confirm-alert-button-group {
   justify-content: center !important;
 }
-.react-confirm-alert-button-group>button{
+.react-confirm-alert-button-group > button {
   background: #39979d !important;
   color: #fff !important;
   font-family: 'SFUIDisplay-Medium' !important;
 }
 
-
-.react-date-picker__wrapper{
+.react-date-picker__wrapper {
   border: none !important;
 }
 
 /*Ag grid Table*/
 
-.ag-theme-alpine .ag-root-wrapper{
+.ag-theme-alpine .ag-root-wrapper {
   border: none !important;
   background: transparent !important;
   text-overflow: initial !important;
 }
 
-.ag-theme-alpine .ag-header{
+.ag-theme-alpine .ag-header {
   border-bottom: none !important;
   margin-bottom: 5px;
   border-radius: 10px !important;
@@ -142,7 +140,7 @@ body.dark{
   background: none !important;
 }
 
-.ag-header-cell-text{
+.ag-header-cell-text {
   text-overflow: initial !important;
 }
 
@@ -162,62 +160,62 @@ body.dark{
   }
 } */
 
-
 /* .ag-root.ag-layout-normal{
   overflow: scroll;
 } */
 
 /*Ag grid Pagination*/
 
-.ag-theme-alpine .ag-paging-panel{
+.ag-theme-alpine .ag-paging-panel {
   border-top: none !important;
   color: #60677e !important;
+  font-size: 12px !important;
   font-family: 'SFUIDisplayRegular' !important;
 }
-.ag-theme-alpine .ag-icon{
+.ag-theme-alpine .ag-icon {
   color: #60677e !important;
 }
 
-.ag-theme-alpine .ag-paging-panel>* {
+.ag-theme-alpine .ag-paging-panel > * {
   margin: 0px -2px !important;
 }
 
-.ag-theme-alpine .ag-ltr .ag-cell{
-  width: auto !important;  /*table data cell width*/
+.ag-theme-alpine .ag-ltr .ag-cell {
+  width: auto !important; /*table data cell width*/
+  display: flex;
+  align-items: center;
 }
-
 
 /*date range*/
 
-.rdrCalendarWrapper{
+.rdrCalendarWrapper {
   position: absolute;
   z-index: 1;
   box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
 
-.rdrStartEdge, .rdrInRange ,.rdrEndEdge{
- color: #39979d !important;
+.rdrStartEdge,
+.rdrInRange,
+.rdrEndEdge {
+  color: #39979d !important;
 }
 
-.rdrDateDisplayItemActive{
+.rdrDateDisplayItemActive {
   border-color: #39979d !important;
 }
 
-
-.react-date-picker__inputGroup__input, .react-date-picker__inputGroup__divider{
-  color: #60677e !important; 
+.react-date-picker__inputGroup__input,
+.react-date-picker__inputGroup__divider {
+  color: #60677e !important;
 }
 
-.react-date-picker__button svg{
+.react-date-picker__button svg {
   stroke: #60677e;
 }
 
-
-
-
-.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected){
+.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected) {
   border: none !important;
-  border-color:  none !important;;
+  border-color: none !important;
   outline: none !important;
 }
 
@@ -229,27 +227,23 @@ body.dark{
   background: #fff !important;
 } */
 
-
-.ag-center-cols-viewport{
+.ag-center-cols-viewport {
   height: calc(100% + 12px) !important;
 }
 
-
-.css-qc6sy-singleValue{
-  color: #60677e !important; 
+.css-qc6sy-singleValue {
+  color: #60677e !important;
 }
-
 
 .popup-arrow {
   display: none !important;
 }
 
-input[type="checkbox" i] {
+input[type='checkbox' i] {
   accent-color: #39979d !important;
   vertical-align: middle;
 }
 
-
-input:focus{
+input:focus {
   outline: none !important;
 }

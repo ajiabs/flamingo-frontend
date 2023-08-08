@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable global-require */
 import React, { useEffect, useState, useContext } from 'react';
@@ -10,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Container, Image } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
+import { firebaseLogin } from 'bubble-chat-web';
 import { TableContext } from '../../contexts/tableContext';
 import PasswordField from '../../components/PasswordField/PasswordField';
 import { logIn } from '../../redux/LoginSlice';
@@ -23,7 +25,7 @@ import { setCookies } from '../../hooks/useCookies';
 
 function LogIn() {
   // eslint-disable-next-line no-unused-vars
-  const { errormsgStyle } = useContext(TableContext);
+  const { errormsgStyle, setUserMenus } = useContext(TableContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logo, setLogo] = useState(null);
@@ -31,6 +33,23 @@ function LogIn() {
   const [submiting, setSubmitting] = useState(false);
   const [loader, setLoader] = useState(false);
   const [err, setErr] = useState('');
+  const [firebaseConfig, setFirebaseConfig] = useState({
+    apiKey: 'AIzaSyDoVlrAIxZOzfUSeAyffbggI47oor3UhLo',
+
+    authDomain: 'bubblechat-49050.firebaseapp.com',
+
+    databaseURL: 'https://bubblechat-49050-default-rtdb.firebaseio.com',
+
+    projectId: 'bubblechat-49050',
+
+    storageBucket: 'bubblechat-49050.appspot.com',
+
+    messagingSenderId: '788327314469',
+
+    appId: '1:788327314469:web:352ed04c771d0fcaa0fbcc',
+
+    measurementId: 'G-VKB15SJ1LP',
+  });
   const {
     register,
     handleSubmit,
@@ -55,13 +74,13 @@ function LogIn() {
   }
   const getSettings = () => {
     const data = {
-      actionUrl: 'settings',
+      actionUrl: 'settings/getLogo',
       actionMethod: 'get',
     };
     dispatch(Entry(data)).then((resp) => {
-      setCookies('dateFormat', resp.payload[0].dateFormat);
-      setCookies('SITE_SETTINGS', JSON.stringify(resp.payload[0]));
-      setLogo(resp.payload[0].logo);
+      setCookies('dateFormat', resp.payload.dateFormat);
+      setCookies('SITE_SETTINGS', JSON.stringify(resp.payload));
+      setLogo(resp.payload.logo);
     });
   };
 
@@ -80,10 +99,14 @@ function LogIn() {
   const onSubmit = (data) => {
     setErr(null);
     setSubmitting(true);
-    dispatch(logIn(data)).then((resp) => {
+    dispatch(logIn(data)).then(async (resp) => {
       setSubmitting(false);
       if (resp.payload.code === 200) {
+        setUserMenus(resp.payload.data.userMenu);
         navigate(resp.payload.data.userMenu[0].urlPath);
+        const email2 = data.email;
+        const password2 = data.Password;
+        const fbdata = await firebaseLogin(email2, password2, firebaseConfig);
       } else {
         toast.error(resp.payload.response.data.message);
         setTimeout(() => {

@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
@@ -20,7 +21,7 @@ import TextInput from '../../components/TextField/TextField';
 import EmailInput from '../../components/EmailBox/EmailBox';
 import { REACT_APP_API_ROLES_DROPDOWN } from '../../redux/apiConstants';
 
-function UserEdit() {
+const UserEdit = React.memo(() => {
   let userId;
   const [submiting, setSubmitting] = useState(false);
   const { dashboardStyle } = useContext(TableContext);
@@ -191,7 +192,7 @@ function UserEdit() {
                 <div className="row">
                   <div className="col-md-6 col-sm-6">
                     <Label className={styles.formlabel}>Date of Birth</Label>
-                    <span style={{ color: 'red' }}>*</span>
+                    <span style={{ color: 'red', marginLeft: '3px' }}>*</span>
                     <DatePickerComponent
                       className={styles.dateinputbox}
                       classNamedark={styles.dateinputbox1}
@@ -208,7 +209,6 @@ function UserEdit() {
                     <MultipleFileUpload editFiles={user.files} section="user" />
                   </div>
                 </div>
-                <br />
                 <input
                   className={styles.formbtn}
                   type="submit"
@@ -229,6 +229,6 @@ function UserEdit() {
       </div>
     </div>
   );
-}
+});
 
 export default UserEdit;

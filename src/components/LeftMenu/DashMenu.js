@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState, useEffect } from 'react';
-import { Nav, Image } from 'react-bootstrap';
+import { Nav, Image, NavDropdown } from 'react-bootstrap';
 import { confirmAlert } from 'react-confirm-alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,6 +17,7 @@ import {
   faAddressCard,
   faFlag,
   faTable,
+  faComments,
 } from '@fortawesome/free-solid-svg-icons';
 import * as Icons from 'react-icons/fa';
 import { useNavigate, useParams, Link } from 'react-router-dom';
@@ -43,16 +44,14 @@ function Menu() {
   const [isOpen, setIsOpen] = useState(window.innerWidth < 600);
   const navigate = useNavigate();
   const { logo } = getCookies('SITE_SETTINGS');
-  const { dashboardSetStyle } = useContext(TableContext);
+  const { dashboardSetStyle, userMenus } = useContext(TableContext);
   const { leftmenuStyle, leftmenulinkSelected } = useContext(TableContext);
   const { leftmenulinks } = useContext(TableContext);
   const changeStyle = () => {
     setIsOpen(!isOpen);
     if (isOpen) {
-      console.log('hii', isOpen);
       dashboardSetStyle('dashboard');
     } else {
-      console.log('helloo', isOpen);
       dashboardSetStyle('cont2');
     }
   };
@@ -68,10 +67,9 @@ function Menu() {
     ? JSON.parse(getCookies('SITE_SETTINGS'))
     : getCookies('SITE_SETTINGS');
   const menus = [];
-  if (getCookies('USERMENU')) {
-    getCookies('USERMENU').forEach((ele) => menus.push(ele));
-  }
-
+  // if (getCookies('USERMENU')) {
+  //   getCookies('USERMENU').forEach((ele) => menus.push(ele));
+  // }
   const logOut = () => {
     confirmAlert({
       title: 'Confirm to logout',
@@ -117,35 +115,95 @@ function Menu() {
           />
         </div>
       </div>
-      <Nav as="ul" className={styles.navlist}>
-        {menus.map((item) => (
-          <Nav.Item as="li" key={item.name}>
+      <div className={styles.navlist}>
+        {userMenus.map((item) => (
+          <Nav
+            as="ul"
+            className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu"
+          >
+            {item.subMenu ? (
+              <li>
+                <Link
+                  to={`#${item.modules}`}
+                  data-bs-toggle="collapse"
+                  className={styles[leftmenulinks]}
+                  id={styles.linksname}
+                >
+                  <MDBTooltip tag="a" title={item.name} className={styles.dynamicicon}>
+                    <DynamicFaIcon name={`${item.icon}`} />
+                  </MDBTooltip>
+                  <span className="d-sm-inline">
+                    {item.name} <FontAwesomeIcon icon="fa-solid fa-angle-down" />
+                  </span>{' '}
+                </Link>
+                <div className={styles.submenu_list}>
+                  <ul
+                    className="collapse hide nav flex-column ms-1"
+                    id={item.modules}
+                    data-bs-parent="#menu"
+                  >
+                    {item.subMenu.map((subItem, index) => (
+                      <li className="w-100">
+                        <Link to={subItem.urlPath} className={styles[leftmenulinks]}>
+                          <span className="d-sm-inline">{subItem.name}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  data-tooltip={item.name}
+                  to={item.urlPath}
+                  id={styles.linksname}
+                  className={
+                    window.location.pathname === item.urlPath
+                      ? styles[leftmenulinkSelected]
+                      : styles[leftmenulinks]
+                  }
+                >
+                  <MDBTooltip tag="a" title={item.name} className={styles.dynamicicon}>
+                    <DynamicFaIcon name={`${item.icon}`} />
+                  </MDBTooltip>
+                  <span style={{ display: isOpen ? 'none' : 'block' }}>{item.name}</span>
+                </Link>
+              </li>
+            )}
+          </Nav>
+        ))}
+      </div>
+      <div className={styles.settingslogout}>
+        <Nav as="ul" className={styles.navlist1}>
+          <Nav.Item as="li" key="Chat">
             <Link
-              data-tooltip={item.name}
-              to={item.urlPath}
+              data-tooltip="Chat"
+              to="/chat"
               id={styles.linksname}
               className={
-                window.location.pathname === item.urlPath
+                window.location.pathname === '/chat'
                   ? styles[leftmenulinkSelected]
                   : styles[leftmenulinks]
               }
             >
-              <MDBTooltip tag="a" title={item.name} className={styles.dynamicicon}>
-                <DynamicFaIcon name={`${item.icon}`} />
+              <MDBTooltip tag="a" title="Chat" className={styles.dynamicicon}>
+                <FontAwesomeIcon icon={faComments} style={{ width: '16px', height: '16px' }} />
               </MDBTooltip>
-              <span style={{ display: isOpen ? 'none' : 'block' }}>{item.name}</span>
+              <span style={{ display: isOpen ? 'none' : 'block' }}>Chat</span>
             </Link>
           </Nav.Item>
-        ))}
-      </Nav>
-      <div className={styles.settingslogout}>
-        <Nav as="ul" className={styles.navlist1}>
           <Nav.Item as="li" key="Settings">
             <Link
               data-tooltip="Settings"
               to="/settings"
               id={styles.linksname}
-              className={styles[leftmenulinks]}
+              className={
+                window.location.pathname === '/settings'
+                  ? styles[leftmenulinkSelected]
+                  : styles[leftmenulinks]
+              }
             >
               <MDBTooltip tag="a" title="Settings" className={styles.dynamicicon}>
                 <FontAwesomeIcon icon={faGear} className={styles.sidemenuicon} />

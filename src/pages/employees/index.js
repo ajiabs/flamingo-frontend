@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useState, useContext, useEffect } from 'react';
 import moment from 'moment';
 import { Col, Row } from 'react-bootstrap';
@@ -10,7 +11,7 @@ import ExportPdf from '../../components/ExportPdf/ExportPdf';
 import styles from './index.module.scss';
 import { getCookies } from '../../hooks/useCookies';
 
-function EmployeeIndex() {
+const EmployeeIndex = React.memo(() => {
   const { setDashboardHeader } = useContext(TableContext);
   const { dashboardStyle, bodyStyle, url, setUrl } = useContext(TableContext);
   const [range, setRange] = useState([]);
@@ -21,6 +22,12 @@ function EmployeeIndex() {
   permissions.forEach((val) => {
     if (val.section.toLowerCase() === temp) {
       exportpermission = !!(val.view || val.edit || val.create || val.delete);
+    } else if (val.submenu) {
+      val.submenu.forEach((element) => {
+        if (element.section.toLowerCase() === temp) {
+          exportpermission = !!(element.view || element.edit || element.create || element.delete);
+        }
+      });
     }
   });
   useEffect(() => {
@@ -111,5 +118,5 @@ function EmployeeIndex() {
       </div>
     </div>
   );
-}
+});
 export default EmployeeIndex;

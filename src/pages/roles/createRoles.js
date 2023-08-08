@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React, { useContext, useState, useEffect } from 'react';
@@ -12,7 +13,9 @@ import { TableContext } from '../../contexts/tableContext';
 import styles from './create.module.scss';
 import { CapitalizeFirstLetter } from '../../utilityFunctions/utilsFunctions';
 
-function CreateRoles() {
+const CreateRoles = React.memo(() => {
+  const permissions = ['create', 'edit', 'view', 'delete'];
+  const viewOnly = 'view';
   const { dashboardStyle } = useContext(TableContext);
   const { setDashboardHeader } = useContext(TableContext);
   const { bodyStyle } = useContext(TableContext);
@@ -30,6 +33,9 @@ function CreateRoles() {
   } = useForm();
   const [status, setStatus] = useState([]);
   const [sections, setSections] = useState();
+  // const actions = [];
+  // const [checkedState, setCheckedState] = useState(new Array(actions.length).fill(false));
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setDashboardHeader('Add Role Details');
@@ -37,18 +43,37 @@ function CreateRoles() {
     actionData.actionUrl = 'roles/modules ';
     actionData.actionMethod = 'get';
     dispatch(Entry(actionData)).then((resp) => {
-      setSections(resp.payload.data.allModules);
+      setSections(resp.payload.data.Menu);
+      const tempData = [];
+      resp.payload.data.Menu.forEach((element) => {
+        const newObj = {};
+        newObj.section = `${element.modules}`;
+        if (element.subMenu) {
+          newObj.submenu = [];
+          element.subMenu.forEach((subItem) => {
+            const subObj = {};
+            subObj.section = `${subItem.modules}`;
+            permissions.forEach((permission) => {
+              subObj[`${permission}`] = false;
+            });
+            newObj.submenu.push(subObj);
+            newObj[`${viewOnly}`] = false;
+          });
+        } else if (element.modules === 'dashboard') {
+          newObj[`${viewOnly}`] = false;
+        } else {
+          permissions.forEach((permission) => {
+            newObj[`${permission}`] = false;
+          });
+        }
+        tempData.push(newObj);
+      });
+      setStatus(tempData);
     });
   }, []);
   function onSubmitdata(data) {
     setSubmitting(true);
-    const permissionArr = [];
-    Object.keys(status).forEach((item) => {
-      const tempObject = { section: item };
-      const finalObeject = { ...tempObject, ...Object.assign(...status[item]) };
-      permissionArr.push(finalObeject);
-    });
-    data.permissions = permissionArr;
+    data.permissions = status;
     const apiData = {
       name: data.name,
       permissions: data.permissions,
@@ -68,81 +93,146 @@ function CreateRoles() {
       }
     });
   }
-  const actions = [];
-  const [checkedState, setCheckedState] = useState(new Array(actions.length).fill(false));
 
-  const handleOnChange = (e, position, name, section) => {
+  const handleOnChange = (e, permission, section, subSection, isSubmenu = false) => {
     if (e.target.value === 'select-all') {
-      section.forEach((sec) => {
-        // eslint-disable-next-line no-unused-expressions
-        status[sec] && status[sec].splice(0, sections[sec].length);
-        setCheckedState(Array(sections[sec].length).fill(e.target.checked));
-        sections[sec].forEach((nam) => {
-          const updatedstaus = { [nam]: e.target.checked };
-          const removestatus = { [nam]: !e.target.checked };
-          if (status[sec]) {
-            for (const i in status[sec]) {
-              if (JSON.stringify(status[sec][i]) === JSON.stringify(removestatus)) {
-                status[sec].splice(i, 1);
-                break;
+      status.forEach((element, index) => {
+        document.getElementById(`select-all-${element.section}`).checked = e.target.checked;
+        if (element.submenu) {
+          status[index][`${viewOnly}`] = e.target.checked;
+          document.getElementById(`custom-checkbox-${element.section}-${viewOnly}`).checked =
+            e.target.checked;
+          element.submenu.forEach((subItem, subIndex) => {
+            permissions.forEach((permissionItem) => {
+              status[index].submenu[subIndex][`${permissionItem}`] = e.target.checked;
+              document.getElementById(
+                `custom-checkbox-${element.section}-${subItem.section}-${permissionItem}`
+              ).checked = e.target.checked;
+            });
+          });
+        } else if (element.section === 'dashboard') {
+          status[index][`${viewOnly}`] = e.target.checked;
+          document.getElementById(`custom-checkbox-${element.section}-${viewOnly}`).checked =
+            e.target.checked;
+        } else
+          permissions.forEach((permissionItem) => {
+            status[index][`${permissionItem}`] = e.target.checked;
+            document.getElementById(
+              `custom-checkbox-${element.section}-${permissionItem}`
+            ).checked = e.target.checked;
+          });
+        setStatus(status);
+      });
+    } else if (e.target.value === `select-all-${section}`) {
+      status.forEach((element, index) => {
+        if (element.section === section) {
+          if (element.submenu) {
+            status[index][`${viewOnly}`] = e.target.checked;
+            document.getElementById(`custom-checkbox-${section}-${viewOnly}`).checked =
+              e.target.checked;
+            element.submenu.forEach((subItem, subIndex) => {
+              permissions.forEach((permissionItem) => {
+                status[index].submenu[subIndex][`${permissionItem}`] = e.target.checked;
+                document.getElementById(
+                  `custom-checkbox-${section}-${subItem.section}-${permissionItem}`
+                ).checked = e.target.checked;
+              });
+            });
+          } else if (element.section === 'dashboard') {
+            status[index][`${viewOnly}`] = e.target.checked;
+            document.getElementById(`custom-checkbox-${element.section}-${viewOnly}`).checked =
+              e.target.checked;
+          } else
+            permissions.forEach((permissionItem) => {
+              status[index][`${permissionItem}`] = e.target.checked;
+              document.getElementById(`custom-checkbox-${section}-${permissionItem}`).checked =
+                e.target.checked;
+            });
+          if (e.target.checked === false)
+            document.getElementById('select-all').checked = e.target.checked;
+          else {
+            const falseFlag = [];
+            status.forEach((sectionItems) => {
+              if (document.getElementById(`select-all-${sectionItems.section}`).checked === false) {
+                document.getElementById('select-all').checked = false;
+                falseFlag.push(`select-all-${sectionItems.section}`);
               }
-            }
-            status[sec].push(updatedstaus);
-          } else {
-            status[sec] = [updatedstaus];
+            });
+            if (falseFlag.length === 0)
+              document.getElementById('select-all').checked = e.target.checked;
           }
-          for (let i = 0; i < sections[sec].length; i += 1) {
-            document.getElementById(`custom-checkbox-${sec}-${i}`).checked = e.target.checked;
-          }
+
           setStatus(status);
-        });
+        }
       });
     } else {
-      // eslint-disable-next-line max-len
-      const updatedCheckedState = checkedState.map((item, indexed) =>
-        indexed === position ? !item : item
-      );
-      setCheckedState(updatedCheckedState);
-      const updatedstaus = { [name]: e.target.checked };
-      const removestatus = { [name]: !e.target.checked };
-      if (status[section]) {
-        for (const i in status[section]) {
-          if (JSON.stringify(status[section][i]) === JSON.stringify(removestatus)) {
-            document.getElementById('select-all').checked = false;
-            status[section].splice(i, 1);
-            break;
+      status.forEach((element, index) => {
+        if (element.section === section) {
+          if (isSubmenu) {
+            element.submenu.forEach((subItem, subIndex) => {
+              if (subItem.section === subSection)
+                status[index].submenu[subIndex][`${permission}`] = e.target.checked;
+            });
+          } else {
+            status[index][`${permission}`] = e.target.checked;
           }
-        }
-        status[section].push(updatedstaus);
-      } else {
-        status[section] = [updatedstaus];
-      }
-      let selectAllCount = 0;
-      Object.keys(sections).forEach((item) => {
-        if (status[item]) {
-          let count = 0;
-          status[item].forEach((value) => {
-            if (Object.values(value)[0]) {
-              count += 1;
-            } else {
-              count -= 1;
-            }
-          });
-          if (count === sections[item].length) {
-            selectAllCount += 1;
+          if (e.target.checked === false) {
+            document.getElementById('select-all').checked = e.target.checked;
+            document.getElementById(`select-all-${element.section}`).checked = e.target.checked;
+          } else {
+            const falseFlag = [];
+            status.forEach((sectionItems, sectionIndex) => {
+              if (sectionItems.submenu) {
+                const falsesubFlag = [];
+                if (!status[sectionIndex][`${viewOnly}`])
+                  falsesubFlag.push(status[sectionIndex][`${viewOnly}`]);
+                sectionItems.submenu.forEach((subItem) => {
+                  permissions.forEach((permissionItem) => {
+                    if (
+                      !document.getElementById(
+                        `custom-checkbox-${sectionItems.section}-${subItem.section}-${permissionItem}`
+                      ).checked
+                    )
+                      falsesubFlag.push(
+                        `custom-checkbox-${sectionItems.section}-${subItem.section}-${permissionItem}`
+                      );
+                  });
+                });
+                if (falsesubFlag.length === 0)
+                  document.getElementById(`select-all-${sectionItems.section}`).checked =
+                    e.target.checked;
+              } else if (sectionItems.section === 'dashboard') {
+                if (status[sectionIndex][`${viewOnly}`])
+                  document.getElementById(`select-all-${sectionItems.section}`).checked =
+                    e.target.checked;
+              } else {
+                const falsesubFlag = [];
+                permissions.forEach((permissionItem) => {
+                  if (
+                    !document.getElementById(
+                      `custom-checkbox-${sectionItems.section}-${permissionItem}`
+                    ).checked
+                  )
+                    falsesubFlag.push(`custom-checkbox-${sectionItems.section}-${permissionItem}`);
+                });
+                if (falsesubFlag.length === 0)
+                  document.getElementById(`select-all-${sectionItems.section}`).checked =
+                    e.target.checked;
+              }
+              if (document.getElementById(`select-all-${sectionItems.section}`).checked === false) {
+                document.getElementById('select-all').checked = false;
+                falseFlag.push(`select-all-${sectionItems.section}`);
+              }
+            });
+            if (falseFlag.length === 0)
+              document.getElementById('select-all').checked = e.target.checked;
           }
+          setStatus(status);
         }
       });
-      if (selectAllCount === Object.keys(sections).length) {
-        document.getElementById('select-all').checked = true;
-        document.getElementById('select-all').disabled = true;
-      } else {
-        document.getElementById('select-all').checked = false;
-        document.getElementById('select-all').disabled = false;
-      }
-      setStatus(status);
     }
   };
+
   return (
     <div className={styles[bodyStyle]}>
       <div
@@ -159,10 +249,10 @@ function CreateRoles() {
             }}
             className={styles.arrowback}
           />
-          <div className="container-fluid mt-3">
+          <div className="container-fluid mt-5">
             <form onSubmit={handleSubmit(onSubmitdata)}>
               <div className="row">
-                <div className="col-md-4 col-sm-4" style={{ padding: '0px' }}>
+                <div className="col-md-4 col-sm-4">
                   <TextInput
                     className={styles.inputbox}
                     classNamedark={styles.inputbox1}
@@ -178,13 +268,13 @@ function CreateRoles() {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6 col-sm-6" style={{ padding: '0px 12px' }}>
+                <div className="col-md-6 col-sm-12" style={{ padding: '0px 12px' }}>
                   <input
                     type="checkbox"
                     id="select-all"
                     name="select-all"
                     value="select-all"
-                    onChange={(e) => handleOnChange(e, 0, null, Object.keys(sections))}
+                    onChange={(e) => handleOnChange(e, 'all', 'all')}
                   />
                   <label htmlFor="select-all" className={styles.selectlabel}>
                     Select all
@@ -193,32 +283,123 @@ function CreateRoles() {
               </div>
               <br />
               {sections &&
-                Object.keys(sections).map((value) => (
+                sections?.map((value) => (
                   <div className="row">
-                    <div className="col-md-6 col-sm-6">
+                    <div className="col-md-6 col-sm-12">
                       <div className={styles[permissionboxStyle]} id={styles.permissionbox}>
-                        <h5 className={styles[bodyheader]} id={styles.addheading}>
-                          {CapitalizeFirstLetter(value)}
-                        </h5>
-                        <ul>
-                          {sections[value].map((name, index) => (
+                        <div className={styles.permission_title}>
+                          <input
+                            type="checkbox"
+                            id={`select-all-${value.modules}`}
+                            name={`select-all-${value.modules}`}
+                            value={`select-all-${value.modules}`}
+                            onChange={(e) => handleOnChange(e, 'all', value.modules)}
+                          />
+                          <h5
+                            htmlFor={`select-all-${value.modules}`}
+                            className={styles[bodyheader]}
+                            id={styles.addheading}
+                          >
+                            {CapitalizeFirstLetter(value.name)}
+                          </h5>
+                        </div>
+                        {value.name === 'Dashboard' || value.subMenu ? (
+                          <ul>
                             <li>
                               <input
                                 type="checkbox"
-                                id={`custom-checkbox-${value}-${index}`}
-                                name={name}
-                                value={name}
-                                onChange={(e) => handleOnChange(e, index, name, value)}
+                                id={`custom-checkbox-${value.modules}-${viewOnly}`}
+                                name={viewOnly}
+                                value={viewOnly}
+                                onChange={(e) => handleOnChange(e, viewOnly, value.modules)}
                               />
                               <label
-                                htmlFor={`custom-checkbox-${value}-${index}`}
+                                htmlFor={`custom-checkbox-${value.modules}-${viewOnly}`}
                                 className={styles.selectlabel}
                               >
-                                {name}
+                                {viewOnly}
                               </label>
                             </li>
-                          ))}
-                        </ul>
+                          </ul>
+                        ) : (
+                          <ul>
+                            {permissions.map((name) => (
+                              <li>
+                                <input
+                                  type="checkbox"
+                                  id={`custom-checkbox-${value.modules}-${name}`}
+                                  name={name}
+                                  value={name}
+                                  onChange={(e) => handleOnChange(e, name, value.modules)}
+                                />
+                                <label
+                                  htmlFor={`custom-checkbox-${value.modules}-${name}`}
+                                  className={styles.selectlabel}
+                                >
+                                  {name}
+                                </label>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {value.subMenu ? (
+                          <div className="mt-3 mb-3">
+                            <h5 className={styles[bodyheader]} id={styles.addheading}>
+                              {CapitalizeFirstLetter('submenu')}
+                            </h5>
+                          </div>
+                        ) : (
+                          ''
+                        )}
+
+                        {value.subMenu
+                          ? value.subMenu.map((subvalue) => (
+                              <div className="row">
+                                <div className="col-md-12 col-sm-12">
+                                  <div
+                                    className={styles[permissionboxStyle]}
+                                    id={styles.permissionbox}
+                                  >
+                                    <h5
+                                      className={styles[bodyheader]}
+                                      id={styles.addheading}
+                                      styles={{ marginLeft: '0px' }}
+                                    >
+                                      {CapitalizeFirstLetter(subvalue.name)}
+                                    </h5>
+                                    <ul className="mt-3">
+                                      {permissions.map((name) => (
+                                        <li>
+                                          <input
+                                            type="checkbox"
+                                            id={`custom-checkbox-${value.modules}-${subvalue.modules}-${name}`}
+                                            name={name}
+                                            value={name}
+                                            onChange={(e) =>
+                                              handleOnChange(
+                                                e,
+                                                name,
+                                                value.modules,
+                                                subvalue.modules,
+                                                true
+                                              )
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`custom-checkbox-${value.modules}-${subvalue.modules}-${name}`}
+                                            className={styles.selectlabel}
+                                          >
+                                            {name}
+                                          </label>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            ))
+                          : ''}
                       </div>
                     </div>
                   </div>
@@ -236,6 +417,6 @@ function CreateRoles() {
       </div>
     </div>
   );
-}
+});
 
 export default CreateRoles;

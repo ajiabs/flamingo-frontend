@@ -1,0 +1,52 @@
+@import "../../styles/Variables/Variables.scss";
+
+.indexdiv{
+
+    #empheading{
+        font-size: 18px;
+        font-family: $sffont-medium;
+        padding-bottom: 50px;
+    }
+    .exportsection{
+        width: 100%;
+        margin-top: 25px;
+
+        #dropdown{
+            float:right;
+        }
+        #dropdown button{
+            background-color:$primary-btncolor;
+            border-radius:5px;
+            border:none;
+            box-shadow:none;
+            font-size:14px;
+            font-family: $sffont-regular;
+            cursor: pointer;
+        }
+        a{
+            font-size:14px;
+            font-family: $sffont-regular;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .exportsection{
+        margin-top: 10px !important;
+
+        #dropdown{
+            float:left !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #dashboardcont2{
+        width: $dashwidth;
+        left: $dashleft;
+        position: relative;
+        padding: $dashboardpadding;
+    }
+}
+

@@ -16,7 +16,7 @@
         text-decoration: none;
         letter-spacing: 0.15em;
         display: inline-block;
-        padding: 15px 20px;
+        padding: 16px 20px;
         position: relative;
         margin-left: -10px;   
     }
@@ -49,12 +49,13 @@
         bottom: 0;
         content: "";
         display: block;
-        height: 1.6px;
+        // height: 1.6px;
         left: 50%;
         position: absolute;
         background:  $primary-btncolor;
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
         width: 0;
+        border-bottom: 2px solid  $primary-btncolor;
       }
       .settingslinks:hover:after { 
         width: 100%; 

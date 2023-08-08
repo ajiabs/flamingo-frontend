@@ -1,90 +1,82 @@
 @font-face {
-    font-family: 'SFUIDisplay-Black';
-    src: url('../fonts/SFUIDisplay-Black.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplay-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplay-Black.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Black.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Black.svg#svgFontName') format('svg'); /* Legacy iOS */
-  }
-  
-  @font-face {
-    font-family: 'SFUIDisplay-Bold';
-    src: url('../fonts/SFUIDisplay-Bold.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplay-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplay-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
-  }
-  @font-face {
-    font-family: 'SFUIDisplay-Light';
-    src: url('../fonts/SFUIDisplay-Light.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplay-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplay-Light.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Light.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
-  }
-  
-  @font-face {
-    font-family: 'SFUIDisplay-Medium';
-    src: url('../fonts/SFUIDisplay-Medium.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplay-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplay-Medium.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Medium.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
-  }
-  @font-face {
-    font-family: 'SFUIDisplayRegular';
-    src: url('../fonts/SFUIDisplayRegular.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplayRegular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplayRegular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Regular.svg') format('svg'); /* Legacy iOS */
-  }
-  @font-face {
-    font-family: 'SFUIDisplay-Semibold';
-    src: url('../fonts/SFUIDisplay-Semibold.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/SFUIDisplay-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SFUIDisplay-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SFUIDisplay-Semibold.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/SFUIDisplay-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SFUIDisplay-Semibold.svg#svgFontName') format('svg'); /* Legacy iOS */
-  }
-  
+  font-family: 'SFUIDisplay-Black';
+  src: url('../fonts/SFUIDisplay-Black.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplay-Black.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplay-Black.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Black.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Black.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Black.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 
- 
+@font-face {
+  font-family: 'SFUIDisplay-Bold';
+  src: url('../fonts/SFUIDisplay-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplay-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Bold.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Bold.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'SFUIDisplay-Light';
+  src: url('../fonts/SFUIDisplay-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplay-Light.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplay-Light.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Light.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Light.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'SFUIDisplay-Medium';
+  src: url('../fonts/SFUIDisplay-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplay-Medium.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Medium.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Medium.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'SFUIDisplayRegular';
+  src: url('../fonts/SFUIDisplayRegular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplayRegular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplayRegular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Regular.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Regular.svg') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'SFUIDisplay-Semibold';
+  src: url('../fonts/SFUIDisplay-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/SFUIDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/SFUIDisplay-Semibold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/SFUIDisplay-Semibold.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('../fonts/SFUIDisplay-Semibold.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/SFUIDisplay-Semibold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 //scss//
 
 //Body Theme Color
 $lightthemecolor: #f3f6f9;
 $darkthemecolor: #151521;
 
-
-$white-color:#fff;
-$black-color:#1d1d1d;
-$lightthemetext:#60677e;
-
+$white-color: #fff;
+$black-color: #1d1d1d;
+$lightthemetext: #60677e;
 
 //Dark Theme Colors
-$primarydark-color:#1e1e2d;
+$primarydark-color: #1e1e2d;
 
 //Button Theme
 $primary-btncolor: #39979d;
-$secondary-btncolor:rgba(37, 105, 109, 0.864);
+$secondary-btncolor: rgba(37, 105, 109, 0.864);
 
+$tableheadlightbg: #e9eaf0;
 
-$tableheadlightbg: #E9EAF0;
-
-
-$sffont-bold:'SFUIDisplay-Bold';
-$sffont-medium:'SFUIDisplay-Medium';
-$sffont-regular:'SFUIDisplayRegular';
-
-
+$sffont-bold: 'SFUIDisplay-Bold';
+$sffont-medium: 'SFUIDisplay-Medium';
+$sffont-regular: 'SFUIDisplayRegular';
 
 //Max Dashboard scss//
 
@@ -95,12 +87,12 @@ $dashboardpadding: 20px;
 
 //Min Dashboard scss//
 
-$dashwidth:calc(100% - 50px);
-$dashleft:50px;
+$dashwidth: calc(100% - 50px);
+$dashleft: 50px;
 
 //Max Dashboard scss//
 
-.dashboard{
+.dashboard {
   width: $dashboardwidth;
   position: relative;
   left: $dashboardleft;
@@ -110,7 +102,7 @@ $dashleft:50px;
 
 //Min Dashboard scss//
 
-.cont2{
+.cont2 {
   width: $dashwidth;
   left: $dashleft;
   position: relative;
@@ -119,166 +111,159 @@ $dashleft:50px;
   // padding-bottom: 8%;
 }
 
-body{
+body {
   background-color: $lightthemecolor;
 }
 
-
-//THEME CHANGE 
-.bodythemelight{
-  background-Color: $lightthemecolor;
+//THEME CHANGE
+.bodythemelight {
+  background-color: $lightthemecolor;
 }
-.bodythemedark{
+.bodythemedark {
   background-color: $darkthemecolor;
 }
-
 
 //Header Navbar Theme
-.headerthemelight{
-  background-Color: $white-color;
+.headerthemelight {
+  background-color: $white-color;
 }
 
-.headerthemedark{
+.headerthemedark {
   background-color: $darkthemecolor;
 }
 
-
-//LEFT MENU THEME CHANGE 
-.menuthemelight{
+//LEFT MENU THEME CHANGE
+.menuthemelight {
   background-color: $white-color;
 }
-.menuthemedark{
-  background-Color: $darkthemecolor;
+.menuthemedark {
+  background-color: $darkthemecolor;
 }
 
 //LEFT MENU LINKS THEME CHANGE
-.menulinklight{
+.menulinklight {
   color: $lightthemetext !important;
 }
 
-.menulinklightSelected{
+.menulinklightSelected {
   // background-color: $lightthemecolor;
   color: $black-color !important;
   border-radius: 10px;
 }
-.menulinkdarkSelected{
+.menulinkdarkSelected {
   // background-color: $primarydark-color;
   color: $white-color !important;
   border-radius: 10px;
 }
 
-.menulinkdark{
-   color: $lightthemetext !important;
+.menulinkdark {
+  color: $lightthemetext !important;
 }
 
-.menulinklight:hover{
+.menulinklight:hover {
   // background-color: $lightthemecolor;
   color: $black-color !important;
 }
-.menulinkdark:hover{
+.menulinkdark:hover {
   // background-color: $primarydark-color;
-  color:$white-color !important;
+  color: $white-color !important;
 }
 
 //BODY HEADERS
-.headinglight{
+.headinglight {
   color: $lightthemetext;
 }
 
-.headingdark{
+.headingdark {
   color: $lightthemetext;
 }
 
 //SEARCH BOX THEME COLOR
-.searchboxlight{
+.searchboxlight {
   background-color: $white-color;
   border: none;
 }
 
-.searchboxdark{
+.searchboxdark {
   background-color: $primarydark-color;
   color: $lightthemetext;
 }
-.searchboxdark::placeholder{
+.searchboxdark::placeholder {
   color: $lightthemetext;
 }
-
 
 //CUSTOM TABLE THEME COLOR
-.tableheadlight{
+.tableheadlight {
   background-color: $tableheadlightbg;
 }
-.tableheaddark{
+.tableheaddark {
   background-color: $primarydark-color;
   color: $lightthemetext;
 }
 
-.tablebodylight{
+.tablebodylight {
   background-color: $white-color;
 
-   &:hover{
+  &:hover {
     background-color: #ddecf9;
     cursor: pointer;
-   }
+  }
 }
-.tablebodydark{
+.tablebodydark {
   background-color: $primarydark-color;
   color: $lightthemetext;
 
-  &:hover{
+  &:hover {
     background-color: #252530;
     cursor: pointer;
-   }
+  }
 }
 
 //PAGINATION THEME COLOR
-.paginationlight{
+.paginationlight {
   color: $lightthemetext !important;
   font-size: 13px !important;
 }
-.paginationdark{
+.paginationdark {
   color: $lightthemetext !important;
   font-size: 13px !important;
 }
 
-//SETTING FORM THEME COLOR 
-.formthemelight{
-   background-color: $white-color;
-   color: $black-color !important;
-   box-shadow: 0px 10px 35px 0px rgb(56 71 109 / 8%);
+//SETTING FORM THEME COLOR
+.formthemelight {
+  background-color: $white-color;
+  color: $black-color !important;
+  box-shadow: 0px 10px 35px 0px rgb(56 71 109 / 8%);
 }
-.formthemedark{
+.formthemedark {
   background-color: $primarydark-color;
   color: $lightthemetext !important;
   font-size: 14px;
 
-  ::placeholder{
+  ::placeholder {
     color: $lightthemetext;
   }
 }
 
 //VIEW FORM DETAILS BOX THEME COLOR
 
-.viewformlight{
-   background-color: $lightthemecolor;
+.viewformlight {
+  background-color: $lightthemecolor;
 }
-.viewformdark{
+.viewformdark {
   background-color: $darkthemecolor;
 }
 
-
-.permissionboxlight{
+.permissionboxlight {
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
 }
-.permissionboxdark{
- background-color: #151521;
- border: none;
+.permissionboxdark {
+  background-color: #151521;
+  border: none;
 }
 
-
-
-.errormsgclr{
+.errormsgclr {
   color: red;
   font-size: 14px;
   font-family: $sffont-regular;
@@ -286,82 +271,73 @@ body{
 }
 
 //Graph theme
-.graphclrlight{
+.graphclrlight {
   background-color: $white-color;
 }
 
-.graphclrdark{
+.graphclrdark {
   background-color: $primarydark-color;
 }
 
 //Counter theme
-#card1bglight{
-  background: linear-gradient(90deg, rgba(181,219,177,1) 13%, rgba(125,178,144,1) 100%);
+#card1bglight {
+  background: linear-gradient(90deg, rgba(181, 219, 177, 1) 13%, rgba(125, 178, 144, 1) 100%);
 }
 
-#card1bgdark{
-   background: #392f28;
+#card1bgdark {
+  background: #392f28;
 }
 
-#card2bglight{
-  background:linear-gradient(90deg, rgba(243,198,165,1) 0%, rgba(248,163,168,1) 100%);
+#card2bglight {
+  background: linear-gradient(90deg, rgba(243, 198, 165, 1) 0%, rgba(248, 163, 168, 1) 100%);
 }
 
-#card2bgdark{
+#card2bgdark {
   background: #1c3238;
 }
 
-#card3bglight{
-  background: linear-gradient(90deg, rgba(213,149,211,1) 0%, rgba(174,132,192,1) 100%);
+#card3bglight {
+  background: linear-gradient(90deg, rgba(213, 149, 211, 1) 0%, rgba(174, 132, 192, 1) 100%);
 }
 
-#card3bgdark{
+#card3bgdark {
   background: #3a2434;
 }
 
-#card4bglight{
-  background: linear-gradient(90deg, rgba(140,212,214,1) 0%, rgba(150,202,247,1) 100%);
+#card4bglight {
+  background: linear-gradient(90deg, rgba(140, 212, 214, 1) 0%, rgba(150, 202, 247, 1) 100%);
 }
 
-#card4bgdark{
+#card4bgdark {
   background: #2f264f;
 }
 
-
-
 //Action button theme
 
-.actionbtnlight{
+.actionbtnlight {
   color: #46475bde;
 }
 
-.actionbtndark{
+.actionbtndark {
   color: $lightthemetext;
 }
 
-
-
 //profile dropdowntheme
 
-.profiledropdownlight{
+.profiledropdownlight {
   background-color: #fff;
 }
 
-.profiledropdowndark{
+.profiledropdowndark {
   background-color: #151521;
 }
 
-
-
-
-
-
-
 @media only screen and (max-width: 600px) {
-  .cont2{
-    width: $dashwidth;
-    left: $dashleft;
-    position: relative;
-    padding: $dashboardpadding;
+
+  .cont2 {
+    width: $dashwidth !important;
+    left: $dashleft !important;
+    position: relative !important;
+    padding: $dashboardpadding !important;
   }
 }
